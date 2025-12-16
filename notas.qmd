@@ -1,0 +1,9 @@
+
+---
+title: "Notas"
+listing:
+  contents: posts
+  sort: "date desc"
+  filter-ui: true
+  categories: true
+---

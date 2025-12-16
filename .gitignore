@@ -1,0 +1,5 @@
+/_site
+/.quarto
+/.quarto-cache/
+*.log
+.DS_Store

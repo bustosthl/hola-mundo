@@ -1,0 +1,23 @@
+
+project:
+  type: website
+  output-dir: _site
+  
+website:
+  title: "Observatorio de Economía Política"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Inicio
+      - href: about/index.qmd
+        text: Sobre nosotros
+      - href: notas.qmd
+        text: Notas
+      - href: publicaciones/index.qmd
+        text: Publicaciones
+  search: true
+
+format:
+  html:
+    theme: cosmo
+    css: assets/styles.css
