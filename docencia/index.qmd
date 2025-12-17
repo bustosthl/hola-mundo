@@ -2,9 +2,7 @@
 format:
   html:
     page-layout: article
-    toc: true
-    toc-title: contenido
-    toc-depth: 2
+    toc: false
     css: /assets/cv.css
 ---
 

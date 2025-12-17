@@ -1,3 +1,3 @@
 # ¡Bienvenidos!
 
-Bienvenidos a mi sitio personal. Aquí podrás encontrar mi [experiencia docente](docencia/docencia.qmd), [publicaciones]() y una [bitácora]() con análisis hechos a lo largo de estos años. ¡Aún en construcción!
+Bienvenidos a mi sitio personal. Aquí podrás encontrar mi [experiencia docente](docencia/index.qmd), [publicaciones](bitacora.qmd#category=publicaciones) y una [bitácora](bitacora.qmd) con análisis hechos a lo largo de estos años. ¡Aún en construcción!
