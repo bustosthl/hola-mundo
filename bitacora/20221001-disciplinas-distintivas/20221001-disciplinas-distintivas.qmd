@@ -7,9 +7,7 @@ categories: ["viz", "empleo","geo"]
 lang: es
 format:
   html:
-    toc: true
-    toc-depth: 3
-    toc-title: contenido 
+    toc: false
     page-layout: article
 ---
 

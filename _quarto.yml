@@ -4,6 +4,11 @@ project:
 
 website:
   title: "Tomás Bustos"
+  favicon: assets/img/favicon.png
+  
+  open-graph: 
+    image: assets/img/favicon.png
+    description: "Mi sitio personal."
 
   navbar:
     left:
