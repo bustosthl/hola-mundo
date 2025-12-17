@@ -8,7 +8,7 @@ website:
   favicon: assets/img/favicon.png
   
   open-graph: 
-    image: /assets/img/favicon.png
+    image: /assets/img/tb.png
     description: "Mi sitio personal."
 
   navbar:
