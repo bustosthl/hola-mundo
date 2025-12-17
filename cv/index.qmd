@@ -1,0 +1,140 @@
+---
+lang: es
+format:
+  html:
+    page-layout: article
+    toc: true
+    toc-depth: 2
+    toc-title: contenido
+    css: /assets/cv.css
+---
+
+::::: cv-header
+::: cv-header-left
+# Tomás Bustos
+
+**Análisis de datos · Sociología**
+:::
+
+::: cv-header-right
+# __
+Ciudad de Buenos Aires\
+bustosth\@gmail.com\
+[linkedin.com/in/tomasbustos](https://www.linkedin.com/in/tomasbustos)
+:::
+:::::
+
+## Experiencia profesional
+
+::::: cv-entry
+::: cv-left
+### Analista de datos – Coordinador
+:::
+
+::: cv-right
+*Prosumia* · **2021 – actualidad**
+:::
+:::::
+
+Gestión de proyectos de análisis de mercado y opinión pública. Diseño de instrumentos, recolección y análisis de datos, y presentación de resultados. Preparación de bases en Python, uso de CRM Salesforce y visualización en Tableau.
+
+::::: cv-entry
+::: cv-left
+### Científico de datos
+:::
+
+::: cv-right
+*Facts Digital* · **2020 – 2021**
+:::
+:::::
+
+Análisis de datos y desarrollo de soluciones basadas en modelos de *machine learning*. Trabajo orientado a la transferencia de herramientas analíticas a clientes. Uso de Python, Power BI y AWS.
+
+::::: cv-entry
+::: cv-left
+### Asistente de proyectos
+:::
+
+::: cv-right
+*Demos Consulting* · **2019**
+:::
+:::::
+
+Participación en estudios de diagnóstico y *trackings* de seguimiento (electorales y de recordación publicitaria). Recolección, procesamiento y análisis de datos utilizando SPSS, Excel y Python.
+
+::::: cv-entry
+::: cv-left
+### Data Designer Executive
+:::
+
+::: cv-right
+*Kantar Millward Brown* · **2018 – 2019**
+:::
+:::::
+
+Diseño gráfico y visualización de estudios de investigación de mercado. Uso intensivo de Excel y PowerPoint, con gestión de bases de datos en SPSS.
+
+## Formación académica
+
+::::: cv-entry
+::: cv-left
+### Maestría en Sociología Económica
+:::
+
+::: cv-right
+*Universidad Nacional de San Martín* · **2025 – actualidad**
+:::
+:::::
+
+::::: cv-entry
+::: cv-left
+### Licenciatura en Sociología
+:::
+
+::: cv-right
+*Universidad de Buenos Aires* · **2017 – 2023**
+:::
+:::::
+
+::::: cv-entry
+::: cv-left
+### Diplomatura en Big Data e Inteligencia Territorial
+:::
+
+::: cv-right
+*FLACSO* · **2024**
+:::
+:::::
+
+::: cv-description
+Formación orientada al análisis de grandes volúmenes de datos territoriales, con énfasis en el uso de R, técnicas de modelado estadístico y predictivo, análisis geoespacial y visualización de información para el estudio de problemáticas socioeconómicas y territoriales.
+:::
+
+::::: cv-entry
+::: cv-left
+### Data Science
+:::
+
+::: cv-right
+*Digital House* · **2019**
+:::
+:::::
+
+::: cv-description
+Formación especializada en ciencia de datos, con fundamentos estadísticos y técnicas de *machine learning* aplicadas en Python.
+:::
+
+## Herramientas
+
+Python · R / RStudio · IBM SPSS · Tableau · GitHub · Power BI · AWS · MS Office
+
+## Idiomas
+
+**Inglés:** intermedio\
+**Alemán:** básico
+
+## Docencia
+
+Experiencia docente universitaria y en formación profesional en análisis de datos, programación y ciencias sociales computacionales.
+
+→ Ver detalle completo en la sección [Docencia](../docencia/index.qmd)

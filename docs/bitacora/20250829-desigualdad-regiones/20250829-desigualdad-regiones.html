@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Tomás Bustos">
+
+<title>Desigualdad de ingresos en las distintas regiones argentinas – Tomás Bustos</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../assets/styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Tomás Bustos</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navegación de palanca" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../cv/index.html"> 
+<span class="menu-text">cv</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../docencia/docencia.html"> 
+<span class="menu-text">docencia</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../bitacora.html#category=publicaciones"> 
+<span class="menu-text">publicaciones</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-bitácora" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">bitácora</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-bitácora">    
+        <li>
+    <a class="dropdown-item" href="../../bitacora.html#category=proyectos">
+ <span class="dropdown-text">proyectos</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../bitacora.html#category=viz">
+ <span class="dropdown-text">viz</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../bitacora.html#category=informes">
+ <span class="dropdown-text">informes</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="../../bitacora.html">
+ <span class="dropdown-text">bitácora completa</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="mailto:bustosth@gmail.com"> <i class="bi bi-envelope" role="img" aria-label="Email">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/tomasbustos"> <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/bustosthl"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Desigualdad de ingresos en las distintas regiones argentinas</h1>
+<p class="subtitle lead">Evolución 2003-2024: un análisis comparativo a partir de la EPH</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">informes</div>
+    <div class="quarto-category">empleo</div>
+    <div class="quarto-category">geo</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor/a</div>
+    <div class="quarto-title-meta-contents">
+             <p>Tomás Bustos </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de publicación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">1 de diciembre de 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="justificado">
+<p><em>Trabajo final de la materia Análisis de Indicadores Sociales (cátedra Benza) de la Maestría en Sociología Económica (UNSAM).</em></p>
+<section id="la-evolución-de-la-desigualdad-de-ingresos-en-las-distintas-regiones-argentinas-2003-2024-un-análisis-comparativo-a-partir-de-la-eph" class="level1">
+<h1>La evolución de la desigualdad de ingresos en las distintas regiones argentinas (2003-2024): un análisis comparativo a partir de la EPH</h1>
+<section id="introducción" class="level3">
+<h3 class="anchored" data-anchor-id="introducción">Introducción</h3>
+<p>La desigualdad de ingresos constituye uno de los rasgos persistentes de las economías latinoamericanas y una tendencia creciente en la economía argentina en particular. La región es caracteriza por altos niveles de desigualdad en comparación con otras regiones del mundo y es incluso mayor a la que podría corresponderse por su nivel de de desarrollo (Gasparini, 2022). Como es sabido, la economía de nuestro país exhibe particularidades en cada una de sus distintas regiones y resulta relevante indagar cómo la desigualdad de ingresos se manifiesta y evoluciona a lo largo y a lo ancho de todo el territorio nacional. Las distintas provincias argentinas presentan fuertes heterogeneidades tanto en sus diferentes niveles de desigualdad como en su ritmo de cambio (González y Nazareno, 2019). Si bien la comparación interregional es necesaria, aquí se pondrá el foco en las dinámicas intraregionales a lo largo del siglo XXI.</p>
+<p>El objetivo es describir la evolución de la desigualdad del ingreso per cápita familiar en cada región del país entre 2003 y 2024, prestando especial atención al resultado de los diferentes contextos socioeconómicos atravesados a través del tiempo. Se restringirá el análisis a los últimos seis gobiernos nacionales, empezando con la presidencia de Néstor Kirchner (2003) y finalizando con el primer año de la presidencia de Javier Milei (2024), últimos microdatos disponibilizados por el INDEC. Se utilizarán dos indicadores: el coeficiente de Gini y la brecha entre trabajadores formales e informales. De manera más específica, se abordará: i) la evolución, para cada región, de la desigualdad medida en dos indicadores; ii) la comparación entre las distintas regiones, para el primer y el último punto analizado.</p>
+<p>El trabajo se estructura en tres secciones. En el primer apartado se podrán encontrar las fuentes de datos utilizadas, explicitando las variables seleccionadas y el recorte realizado. En el segundo apartado se presentarán los resultados del procesamiento, marcando tendencias y puntos de interés sobre la representación gráfica de los indicadores para cada una de las regiones. Para finalizar, el apartado de conclusiones repasa los hallazgos más relevantes y propone una lectura global de las tendencias observadas.</p>
+</section>
+<section id="metodología" class="level3">
+<h3 class="anchored" data-anchor-id="metodología">Metodología</h3>
+<p>La fuente de datos que se utilizó fue la Encuesta Permanente de Hogares (EPH) que elabora el Instituto Nacional de Estadísticas y Censos (INDEC). La EPH es un operativo que se realiza en las principales áreas urbanas del país, representando al 66% de la población total. Se procesaron las bases de microdatos de la EPH continua, disponible desde el tercer trimestre del año 2003 hasta el cuarto trimestre del año 2024, con la excepción del tercer trimestre de 2007<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, el tecer y cuarto trimestre de 2015 y el primer trimestre de 2016<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Las bases de datos mencionadas fueron tratadas con el lenguaje de programación <em>Python</em> en la interfaz <em>Google Colaboratory</em> y descargadas con la librería <em>PyEPH</em><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p>
+<p>Todos los cálculos están realizados en base al ingreso per cápita familiar (IPCF). Se utilizó preferentemente el factor de expansión PONDIH (para el tratamiento con corrección por no respuesta) para los años donde está disponible (2004-2006, 2016-2024). En el resto de los casos (2007-2015) se utilizó el factor de expansión PONDERA.</p>
+<p>Se seleccionaron dos indicadores para aproximarnos la medición de la desigualdad en cada región argentina. Por un lado se trabajó con el coeficiente de Gini, ampliamente utilizado para medir qué tan desigualmente distribuidos están los ingresos de una población en un lugar y momento dado. Su valor oscila entre 0 (igualdad absoluta) y 1 (desigualdad absoluta). Para su aplicación en <em>Python</em> se utilizó la librería <em>Inequalipy</em><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>. Además de permitir comparaciones con vastos estudios a nivel global por su uso extendido en ámbitos académicos (Gasparini, Cicowiez y Sosa Escudero, 2012), el coeficiente de Gini incorpora información de toda la distribución a diferencia del segundo indicador que se verá a continuación.</p>
+<p>El segundo indicador seleccionado se basa en una categoría de empleo construída por el Programa Regional de Empleo para América Latina y el Caribe (PREALC) que divide a la población ocupada en tres grandes grupos: trabajadores públicos, trabajadores privados formales y trabajadores privados informales. El PREALC define al sector informal “como una manera de producir <span class="math display">\[...\]</span> que se define por el escaso capital con que cuentas las empresas, su tecnología rudimentaria en términos relativos y su desconexión de los circuitos financieros formales” (Klein y Tokman, 1988, p.206). Aquí se utilizará la brecha entre la mediana del IPCF de trabajadores formales (tanto público como privado) y trabajadores privados informales, pero es necesario tener en cuenta que el agrupamiento del sector privado formal con el sector público provoca un aumento de la brecha: para casi todos los años trabajados, el promedio del IPCF del sector público es mayor que el del sector privado formal. En términos de interpretación, si el valor del indicador es 1, indica que la mediana del IPCF de ambos grupos es igual. Valores superiores a 1 indican cuán superior es la mediana del IPCF de los trabajadores formales sobre los trabajadores privados informales; valores inferiores a 1 indicarían que la mediana de los trabajadores privados formales es mayor que la de los trabajadores formales. Por caso, un valor de 1.5 indica que la mediana del IPCF de los trabajadores formales es 50% mayor que la mediana de los trabajadores privados informales. Para el período analizado, el indicador toma siempre valores mayores a 1.</p>
+</section>
+<section id="análisis-de-resultados" class="level3">
+<h3 class="anchored" data-anchor-id="análisis-de-resultados">Análisis de resultados</h3>
+<p>Ahora bien, veamos la evolución de los indicadores para las distintas regiones. La EPH clasifica internamente a los aglomerados urbanos según la provincia a la que pertenecen en 6 regiones: Gran Buenos Aires (Ciudad de Buenos Aires y su área metropolitana), Pampeana (Resto de la Provincia de Buenos Aires, Entre Ríos, Santa Fe, Córdoba y La Pampa), Patagonia (Tierra del Fuego, Santa Cruz, Chubut, Río Negro y Neuquén), Cuyo (Mendoza, San Luis, San Juan), Noroeste (La Rioja, Catamarca, Santiago del Estero, Tucumán, Salta y Jujuy) y Noreste (Chaco, Formosa, Corrientes y Misiones). Tanto el coeficiente de Gini como la brecha fueron calculados a nivel trimestral (con las tres excepciones señaladas en el apartado <em>Metodología</em>) y promediadas anualmente. Sin dejar de considerar la serie completa, el análisis se enfocará en los años de cambio de gobiernos ejecutivos para facilitar el análisis.</p>
+<p><img src="img/arg.png" class="img-fluid"></p>
+<p>A nivel nacional, se ve una reducción sostenida del coeficiente de Gini entre 2003 y 2015. Entre 2015 y 2019 tiene una tendencia ascendente; luego del 2019, aún con oscilaciones, finaliza en torno a 0.433, valores similares al 2011.</p>
+<p>En el caso de la brecha, la tendencia es menos clara. Primero, se observa un fuerte aumento entre 2003 y 2007. Entre ese año y 2011 la brecha disminuye fuertemente, llegando a 1.533. Finalmente, aún con oscilaciones, la tendencia creciente en indiscutible: la brecha finaliza con un valor de 1.71.</p>
+<p><img src="img/gba.png" class="img-fluid"></p>
+<p>El Gran de Buenos Aires tiene una tendencia muy similar al caso nacional, probablemente por representar en torno al 53% de la población relevada en el operativo. La reducción sostenida del coeficiente de Gini se observa hasta el año 2015. Luego aumenta hasta el año 2019 y, aún con oscilaciones, se sostiene en un valor cercano hasta el año 2023. La brecha tiene un aumento importante entre 2003-2007, una caída luego hasta 2011, oscilaciones hasta 2015 y otro aumento entre 2015-2023.</p>
+<p><img src="img/noroeste.png" class="img-fluid"></p>
+<p>La región noroeste presenta, para el Gini, una reducción sostenida entre 2003 y 2023, con la excepción del periodo 2015-2019 dónde se estanca en torno al 0,393 y 0,405 respectivamente. Respecto a la brecha, aumenta fuertemente entre 2003 y 2007, levemente entre 2015 y 2019 y se reduce en el resto del periodo. En el último periodo analizado, la brecha pasa de 1,693 a 1,594.</p>
+<p><img src="img/nordeste.png" class="img-fluid"></p>
+<p>La región nordeste comparte la tendencia de la región anterior. El coeficiente de Gini se reduce durante los años considerados con la excepción de la presidencia de Mauricio Macri, donde se estanca en torno al 0,4. La brecha entre trabajadores formales e informales presenta un gran aumento en los primeros cuatro años, se sostiene los siguientes cuatro y se reduce recién entre 2011 y 2015. Finalmente, el indicador se mantiene estable hasta 2019 y vuelve a presentar una reducción durante los últimos cuatro años analizados.</p>
+<p><img src="img/cuyo.png" class="img-fluid"></p>
+<p>En la región se Cuyo se observa una reducción del índice de Gini hasta el año 2011. Luego, atraviesa cierra estabilidad y cierra el año 2019 con un leve aumento. Como en la mayoría de los casos, se reduce en los últimos cuatro años. Respecto a la brecha, sorprende con una mayor variabilidad que en el resto de las regiones. El indicador promedia en el año 2015 (1,530) con un valor similar al de 2003 (1,525). Luego se reduce en dos periodos siguientes, con mayor intensidad entre 2015 y 2019 y un poco más levemente hacia 2023.</p>
+<p><img src="img/pampeana.png" class="img-fluid"></p>
+<p>La región pampeana presenta una reducción del coeficiente de Gini hasta el año 2015 (0,397). Los siguientes cuatro años aumenta a 0,418 y promedia el último año del período analizado con una reducción de 0,013 puntos. La brecha entre trabajadores formales e informales aumenta en los primeros cuatro años y luego, con oscilaciones, se mantiene estable hasta 2015. Durante 2015-2019 aumenta a 1,660 y cierra el período de análisis con una reducción de 0,066 puntos.</p>
+<p><img src="img/patagonia.png" class="img-fluid"></p>
+<p>En la región patagónica el coeficiente de Gini se reduce sostenidamente hasta el año 2019. Luego se sostiene con oscilaciones hasta 2023 donde promedia un valor de 0,401. La brecha, si bien se reduce en los primeros cuatro años, presenta luego fuertes oscilaciones y termina aumentando al 1,689 en el año 2019. En los últimos cuatro años se reduce levemente hasta promediar en el 2023 con un valor de 1,659.</p>
+<p><img src="img/gini.png" class="img-fluid"></p>
+<p>Para evaluar el desempeño de los indicadores quizás sea más claro verlo en un mismo gráfico con base 100 en el primer punto de la serie. Sobre el coeficiente de Gini podemos hacer tres apreciaciones. Primero, todas las regiones poseen una tendencia descendente similar, hasta el año 2015 donde empiezan a tener caminos divergentes. Segundo, el norte del país, tanto al este como al oeste, es la zona con mejor desempeño, bajando la desigualdad cerca de un 70% del valor que presentaban originalmente. Tercero, se distingue la tendencia de la región patagónica, por mantenerse relativamente alta entre 2007 y 2015 y terminar con el peor desempeño entre las 6 regiones con un descenso al 85% del valor que presentaba su coeficiente de Gini en 2003.</p>
+<p><img src="img/brecha.png" class="img-fluid"></p>
+<p>El balance es menos claro para la brecha. La heterogeneidad de los primeros 8 años de análisis es sugerente, con un fuerte aumento en el norte del país y un descenso en la región patagónica. Si bien entre los años 2011-2019 la brecha tiende a converger en torno a valores similares a los de 2003, para los últimos 5 años de análisis vuelve a destacar la heterogeneidad y se observa una reducción mayor de la brecha para la región nordeste, noroeste y cuyo.</p>
+<p><img src="img/ranking.png" class="img-fluid"></p>
+<p>Ahora bien, interesa detenerse en una comparación interregional, solo para el primer y el último punto de la serie. Es necesario decir que los indicadores producen rankings distintos. Para el año 2003, mientras el Gran Buenos Aires es la región que presenta un mayor coeficiente de Gini, ocupa el tercer puesto en el indicador de la brecha. La región patagónica es otro caso de interés: para el mismo año ocupa el último puesto si observamos el coeficiente de Gini y el segundo si observamos la brecha.</p>
+<p>El otro punto de interés es el movimiento que presentan entre 2003 y 2023. La región patagónica escala posiciones si observamos el coeficiente de Gini, del último año segundo puesto. Por otro lado, observando la brecha, la región nordeste empieza la serie en el primer puesto y termina el 2023 en el último puesto.</p>
+</section>
+<section id="conclusiones" class="level3">
+<h3 class="anchored" data-anchor-id="conclusiones">Conclusiones</h3>
+<p>Vale la pena subrayar algunas ideas generales que se desprende del análisis anterior. Resulta evidente que los dos indicadores analizados, si bien están relacionados, tienen tendencias diferenciadas a lo largo del período elegido. La brecha entre trabajadores formales y trabajadores privados informales presenta mayores oscilaciones dentro de cada región y, a diferencia del coeficiente de Gini, no tiene una tendencia homogénea entre las distintas regiones. Existen períodos, como 2007-2011, donde la brecha aumenta mientras el Gini se reduce. Esto sugiere que cada indicador captura dimensiones distintas de la desigualdad y que pueden funcionar de manera complementaria.</p>
+<p>Sin perjuicio de lo anterior, hay similitudes en los movimientos entre ambos indicadores que merecen ser observadas con detenimiento. Las regiones nordeste y noroeste presentan una la mayor reducción de ambos indicadores en el año 2024 respecto al 2003, mientras que el Gran Buenos Aires y la región pampeana presentan la menor reducción. En otras palabras, cuatro de las seis regiones presentan resultados similares en ambos indicadores entre 2003 y 2024.</p>
+<p>Luego, cabe preguntarse por el efecto de políticas nacionales en las distintas trayectorias regionales. El coeficiente de Gini tiene una tendencia marcada y homogénea en las seis zonas analizadas, tanto en su descenso generalizado como en el aumento simultáneo en la presidencia de Mauricio Macri y en el primer año de Javier Milei. Un segundo punto de interés es cómo sus trayectorias se dispersan luego del año 2015, con algunas regiones que continúan su descenso (nordeste, noroeste, cuyo), algunas que lo hacen de manera más moderada (pampeana, patagónica) y el caso del Gran Buenos Aires donde directamente aumenta el coeficiente de Gini.</p>
+</section>
+<section id="bibliografía" class="level3">
+<h3 class="anchored" data-anchor-id="bibliografía">Bibliografía</h3>
+<p>Gasparini, L., Cicowiez, M. y W. Sosa Escudero (2012), <em>Pobreza y desigualdad en América Latina</em>. Conceptos, herramientas y aplicaciones, Buenos Aires, Temas Grupo Editorial.</p>
+<p>Gasparini, L. (2022), <em>Desiguales</em>, Ciudad Autónoma de Buenos Aires, Edhasa.</p>
+<p>González, L, y M. Nazareno. (2019). “La desigual distribución de la desigualdad. Política subnacional y distribución del ingreso en las provincias argentinas, 2003-2011”. <em>Revista SAAP</em>, 13(1), 11-20. Recuperado en 29 de agosto de 2025, de <a href="https://www.scielo.org.ar/scielo.php?script=sci_arttext&amp;pid=S1853-19702019000100011&amp;lng=es&amp;tlng=es" class="uri">https://www.scielo.org.ar/scielo.php?script=sci_arttext&amp;pid=S1853-19702019000100011&amp;lng=es&amp;tlng=es</a>.</p>
+<p>Klein, E. y V. Tokman (1988), “Sector informal: una forma de utilizar el trabajo como consecuencia de una forma de producir y no a la inversa. A propósito del artículo de Portes y Benton”, <em>Estudios Sociológicos</em>, 6 (16), pp.&nbsp;205-212.</p>
+</section>
+</section>
+</div>
+
+
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Notas</h2>
+
+<ol>
+<li id="fn1"><p>La informacion correspondiente al tercer trimestre de 2007 no esta disponible ya que los aglomerados Mar del Plata-Batan, Bahia Blanca-Cerri y Gran La Plata no fueron relevados por causas de orden administrativo, mientras que los datos correspondientes al Aglomerado Gran Buenos Aires no fueron relevados por paro del personal de la EPH.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>En el marco de la emergencia estadistica el INDEC no publico la base solicitada. Más informacion en: <a href="https://www.indec.gob.ar/ftp/cuadros/sociedad/anexo_informe_eph_23_08_16.pdf" class="uri">https://www.indec.gob.ar/ftp/cuadros/sociedad/anexo_informe_eph_23_08_16.pdf</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p><em>Documentación disponible en <a href="https://pyeph.readthedocs.io/es/latest/" class="uri">https://pyeph.readthedocs.io/es/latest/</a></em><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p><em>Documentación disponible en <a href="https://github.com/urutau-nz/inequalipy" class="uri">https://github.com/urutau-nz/inequalipy</a></em><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

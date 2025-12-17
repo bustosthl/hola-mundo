@@ -1,0 +1,81 @@
+---
+format:
+  html:
+    page-layout: article
+    toc: true
+    toc-title: contenido
+    toc-depth: 2
+    css: /assets/cv.css
+---
+
+# Docencia
+
+::::: cv-entry
+::: cv-left
+### Análisis y visualización espacial con R
+:::
+::: cv-right
+*Estación R* · **2025**
+:::
+:::::
+
+::: cv-description
+A cargo del curso *Mapas en Acción*, orientado al análisis de datos geoespaciales y a la visualización aplicada a problemáticas sociales mediante R.
+:::
+
+::::: cv-entry
+::: cv-left
+### Introducción a Python y R
+:::
+::: cv-right
+*Facultad de Ciencias Sociales – UBA* · **2024–2026**
+:::
+:::::
+
+::: cv-description
+A cargo del curso de formación profesional para la incorporación de Python en Ciencias Sociales (ediciones [2025](https://www.sociales.uba.ar/extension/formacion-profesional/oferta-2025/) y [2026](https://www.sociales.uba.ar/extension/formacion-profesional/oferta-2026/)).  
+Docente también del taller de Introducción a R para estudiantes de Sociología (edición 2024).  
+Material del curso disponible [aquí](https://bustosthl.github.io/intro_R/).
+:::
+
+::::: cv-entry
+::: cv-left
+### Diplomatura “Cuestiones socioeconómicas fundamentales de la Argentina actual”
+:::
+::: cv-right
+*Facultad de Ciencias Sociales – UBA* · **2024 – actualidad**
+:::
+:::::
+
+::: cv-description
+Seguimiento de clases, elaboración de material gráfico y diseño de actividades didácticas complementarias para la diplomatura.  
+Programa y contenidos disponibles [aquí](https://www.sociales.uba.ar/extension/diplomaturas/cuestionessocioeconomicas/).
+:::
+
+::::: cv-entry
+::: cv-left
+### Diplomatura en Ciencias Sociales Computacionales y Humanidades Digitales
+:::
+::: cv-right
+*EIDAES–UNSAM* · **2022–2023**
+:::
+:::::
+
+::: cv-description
+A cargo de las clases de Introducción a *Machine Learning* en la diplomatura dictada por FactorData.  
+Más información sobre la diplomatura [aquí](https://www.unsam.edu.ar/escuelas/eidaes/671/idaes/ciencias-sociales-computacionales-humanidades-digitales).
+:::
+
+::::: cv-entry
+::: cv-left
+### Curso de Data Science
+:::
+::: cv-right
+*Digital House* · **2020–2021**
+:::
+:::::
+
+::: cv-description
+Responsable de la parte práctica del curso de Data Science, acompañamiento didáctico a estudiantes y corrección de evaluaciones.  
+Información del curso disponible [aquí](https://www.digitalhouse.com/ar/productos/datos/data-science).
+:::

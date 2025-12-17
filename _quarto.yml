@@ -1,24 +1,47 @@
-
 project:
   type: website
   output-dir: docs
-  
+
 website:
-  title: "Observatorio de Economía Política"
-  site-url: https://bustosthl.github.io/oep-web/
+  title: "Tomás Bustos"
+
   navbar:
     left:
-      - href: index.qmd
-        text: Inicio
-      - href: about/index.qmd
-        text: Sobre nosotros
-      - href: notas.qmd
-        text: Notas
-      - href: publicaciones/index.qmd
-        text: Publicaciones
-  search: true
+      - href: cv/index.qmd
+        text: cv
+      
+      - href: docencia/index.qmd
+        text: docencia
+      
+      - href: bitacora.qmd#category=publicaciones
+        text: publicaciones
+
+      - text: bitácora
+        menu:
+          - href: bitacora.qmd#category=proyectos
+            text: proyectos
+          - href: bitacora.qmd#category=viz
+            text: viz
+          - href: bitacora.qmd#category=informes
+            text: informes
+          - ---
+          - href: bitacora.qmd
+            text: bitácora completa
+    right:
+      - icon: envelope
+        href: mailto:bustosth@gmail.com
+        aria-label: Email
+      - icon: linkedin
+        href: https://www.linkedin.com/in/tomasbustos
+        aria-label: LinkedIn
+      - icon: github
+        href: https://github.com/bustosthl
+        aria-label: GitHub
+      
+
+  search: false
 
 format:
   html:
-    theme: cosmo
+    theme: united #united yeti sandstone
     css: assets/styles.css

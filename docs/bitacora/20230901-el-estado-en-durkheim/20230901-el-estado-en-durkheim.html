@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Tomás Bustos">
+
+<title>El Estado en Durkheim – Tomás Bustos</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../assets/styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Tomás Bustos</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navegación de palanca" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../cv/index.html"> 
+<span class="menu-text">cv</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../docencia/docencia.html"> 
+<span class="menu-text">docencia</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../bitacora.html#category=publicaciones"> 
+<span class="menu-text">publicaciones</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-bitácora" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">bitácora</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-bitácora">    
+        <li>
+    <a class="dropdown-item" href="../../bitacora.html#category=proyectos">
+ <span class="dropdown-text">proyectos</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../bitacora.html#category=viz">
+ <span class="dropdown-text">viz</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../bitacora.html#category=informes">
+ <span class="dropdown-text">informes</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="../../bitacora.html">
+ <span class="dropdown-text">bitácora completa</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="mailto:bustosth@gmail.com"> <i class="bi bi-envelope" role="img" aria-label="Email">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/tomasbustos"> <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/bustosthl"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">El Estado en Durkheim</h1>
+<p class="subtitle lead">De mera encarnación a órgano de reflexión</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">publicaciones</div>
+    <div class="quarto-category">sociología-política</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor/a</div>
+    <div class="quarto-title-meta-contents">
+             <p>Tomás Bustos </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de publicación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">1 de septiembre de 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="justificado">
+<p><em>Presentado en las <a href="https://xvjornadasdesociologia.sociales.uba.ar/">XV Jornadas de Sociología</a>, organizadas por la Facultad de Ciencias Sociales de la Universidad de Buenos Aires. Publicación disponible <a href="https://jornadasdesociologia.sociales.uba.ar/wp-content/uploads/sites/295/advanced-cf7-upload/Bustos_Tomas_2023_El-Estado-en-Durkheim.pdf">aquí</a>.</em></p>
+<section id="de-mera-encarnación-a-órgano-de-reflexión-el-estado-en-durkheim." class="level1">
+<h1>De mera encarnación a órgano de reflexión: el Estado en Durkheim.</h1>
+<section id="introducción" class="level2">
+<h2 class="anchored" data-anchor-id="introducción">1. Introducción</h2>
+<p>En este trabajo me propongo analizar el proceso de modificación que sufrió el concepto de Estado y su rol en la obra de Émile Durkheim (1858-1917), un concepto que se aborda de manera lateral en la mayor parte de sus escritos. Es menester contextualizar al autor: considerado padre fundador de la Sociología, el pensador alsaciano vivió los albores de la Tercera República francesa, el primer régimen francés duradero después de ocho décadas de profunda conflictividad política y económica. El gobierno de la Tercera República, organizador de una sociedad recientemente transformada por la progresiva urbanización, industrialización y el declive religioso, donde la soberanía como fundamento de legitimidad sólo parecía implicar una sostenida inestabilidad<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, sobrellevaba la época acechado por dos alianzas políticas contrapuestas. Por un lado, los liberales y conservadores se mostraban hostiles ante la intervención del Estado, ya sea en defensa de la libre libre iniciativa de mercado o de las asociaciones humanas “naturales” -como la familia-. Por otro lado, los grupos cercanos al marxismo se organizaban contra el carácter opresivo de la República “burguesa”, donde la función del Estado no era más que instrumentalizar la opresión de una clase sobre otra. En ese marco, y siguiendo a Donzelot (2007), Durkheim buscó a través de su reflexión dar fundamento y coherencia teórica al gobierno de la Tercera República, desarrollando el concepto de <em>solidaridad</em> para dar sustento filosófico y científico a una práctica política que se desarrollaba asediado por las tradiciones antedichas y en busca de una legitimidad sostenible que sólo podía lograrse reconfigurando la noción de soberanía. Se considera a la noción de solidaridad como “<em>una invención estratégica</em>, como la racionalización de una práctica republicana […] cuyo alcance explicativo sobre el función de las sociedades sólo vale en relación con e ficciones que son <em>el individuo</em> […] y <em>la lucha de clases</em>” (Donzelot, 2007, 57). Se observa así en la obra durkheimiana un primer registro fundamental, en estrecha relación con lo antedicho, en torno a la pregunta de cómo se construye y mantiene la cohesión social en esta sociedad de nuevo tipo, industrializada, laica, con un mercado nacionalizado e incluso internacionalizado, donde se multiplica por doquier la legislación impartida por los gobiernos y los conflictos en las diferentes ramas de la actividad económica.</p>
+<p>Se puede detectar también un segundo registro en las obras trabajadas. En un primer momento existe una preocupación constante por dar a la Sociología un estatus de ciencia, por insertarla en el campo académico con un prestigio equivalente a las que ya circulaban en ese momento: psicología, biología, filosofía. La primera parte de su obra está destinada a dar a la Sociología un objeto de estudio, un método determinado, una tradición sobre la que seguir discutiendo y casos de estudio donde el ejercicio del método sociológico puede dar lugar a hallazgos interesantes y novedosos sobre cuestiones fundamentales de la vida en sociedad como, entre otras, el establecimiento de normas adecuadas y duraderas en un momento específico. En los albores del siglo XX, Durkheim realiza en cambio gradual de enfoque, buscando no sólo la legitimidad propia de la Sociología sino también una rivalidad con la primacía de la filosofía. Lo que se dió en llamar la “mirada totalizadora de la disciplina”, que consistía en que “la sociología haga las veces de un sistema para todas ellas [las ciencias sociales], o más bien, que les ofrezca una cierta clase de propedéutica” (Nocera, 2016, XV).</p>
+<p>Para abordar el concepto de Estado nos interesa especialmente el arco narrativo que se traza entre las siguientes obras, por año de producción: <em>La división del trabajo social</em> (1893), <em>El socialismo</em> (1895) y <em>El suicidio</em> (1897). La dificultad manifiesta en estas obras es que, si bien el Estado forma parte nodal de su análisis, no se detiene específicamente en desarrollar un concepto acabado del mismo. A medida que aborda la problemática particular de cada escrito va esbozando, por aproximaciones sucesivas, algo que podríamos llamar una teoría del Estado. El desafío propuesto es intentar encontrar una narrativa que logre aunar las diferentes aproximaciones encontradas. Por supuesto, la publicación de su curso <em>Lecciones de Sociología</em> (1890-1900) y el ensayo con su curso <em>El Estado</em> (1900-1905) servirá de punto de llegada, ya que presenta la visión más acabada del autor sobre el concepto.</p>
+<p>Es bien conocida la tendencia de Durkheim a utilizar metáforas orgánicas y biológicas para describir los fenómenos sociales y el Estado no escapa a está inclinación. Lo llama -indistintamente en la primera parte de su obra- cerebro social, órgano director de la vida social, aparato regulador central, órgano de la conciencia común, órgano central de la vida colectiva. Dentro de los trabajos indicados, sólo en el ensayo sobre <em>El Estado</em> se limita a la utilización del término “Estado”. Intentaré acompañar su decisión terminológica a lo largo de este mismo escrito.</p>
+</section>
+<section id="el-estado-como-encarnación-del-tipo-colectivo" class="level2">
+<h2 class="anchored" data-anchor-id="el-estado-como-encarnación-del-tipo-colectivo">2. El Estado como encarnación del tipo colectivo</h2>
+<p><em>La división del trabajo social</em> es la tesis doctoral de Durkheim y se cuenta entre sus primeros trabajos de gran impacto. Allí analiza cómo incide la división del trabajo social en las formas de integración de las sociedades, a través del análisis de la evolución del derecho que se establece en cada momento. El autor define dos grupos o temporalidades en las sociedades. En las sociedades tradicionales los individuos comparten creencias, valores y normas; los roles y tareas son simples y compartidos entre un gran número de personas; prima el derecho represivo. En estos casos, Durkheim define que la cohesión social se articula bajo la forma de la solidaridad mecánica. En las sociedades modernas, con una división del trabajo avanzada, las habilidades de los individuos tienden a especializarse y sus tareas a ser interdependientes. Las personas adquieren una mayor conciencia en torno a su singularidad y el derecho represivo pierde terreno en favor del derecho restitutivo. Esta forma de solidaridad es llamada orgánica por el autor, con la individualización y la complementariedad como características preponderantes. Iré profundizando esto en lo que sigue.</p>
+<p>Es ilustrativo que en las primeras menciones del Estado que realiza Durkheim en su tesis doctoral ponga de manifiesto la indefinición que sobrevolaba en torno al concepto. Al descartar la división del derecho en público y privado, el autor afirma “¿Qué es, por lo demás, el Estado? ¿Dónde comienza y dónde termina? Bien sabemos cuánto se discute la cuestión; no es científico apoyar una clasificación fundamental sobre una noción tan obscura y poco analizada.” (Durkheim, 2011a, 71-72). En estos primeros trazos, el autor utiliza casi indistintamente los conceptos de gobierno y Estado.</p>
+<p>En <em>La división del trabajo social</em>, Durkheim se propone comprender la evolución del lazo social de las sociedades a través de uno de sus carácteres visibles, el derecho. Si bien es evidente que el Estado es quien establece el derecho junto con sus sanciones, Durkheim no parece creer que esté en él mismo el origen de tal acción. Podemos dilucidar así que el Estado y sus capacidades no son autónomas y autosuficientes, sino que derivan de algo que se encuentra por fuera.</p>
+<p>Es indudable que, una vez que un poder de gobierno se establece tiene, por sí mismo, bastante fuerza para unir espontáneamente, a ciertas reglas de conducta, una sanción penal. […] Ahora bien, un mismo hecho no puede tener dos causas, a menos que esta dualidad sea sólo aparente y que en el fondo no exista más que una. El poder de reacción, propio del Estado, debe ser, pues, de la misma naturaleza del que se halla difuso en la sociedad. (Durkheim, 2011a, 85-86)</p>
+<p>El autor encuentra palabras para definir la relación entre ese poder que se halla difuso en la sociedad y el Estado. Este último se convierte en “símbolo, en expresión viviente […] es la encarnación del tipo colectivo” (Durkheim, 2011a, 86). Así, el Estado sería una mera derivación de la sociedad, detentando una autoridad que se construye en otro lugar y le es conferida. Es curioso destacar esta condición, ya que se puede observar el germen de una doble característica. Si bien el Estado “no es más que una derivación de la fuerza que se halla inmanente en la conciencia común, tiene las mismas propiedades y reacciona de la misma manera”, existe una cierta dislocación, una cierta autonomía generada por el lugar excepcional que ocupa en el todo social. Sin dejar de señalar que “sin que por eso se independice de la fuente de donde mana y en que continúa alimentándose”, el autor afirma que el Estado “se convierte en un factor autónomo de la vida social, capaz de producir espontáneamente movimientos propios que no determina ninguna impulsión externa” (Durkheim, 2011a, 87). Si bien <em>Las reglas del método sociológico</em> todavía no habían sido escritas, se puede observar aquí algunos elementos que quedarán mejor definidos luego como las características de los hechos sociales.</p>
+<p>Para el sociólogo francés es de suma importancia la función, el rol que cumple cada órgano en la vida social. Al atender la evolución de las sanciones y su contenido, encuentra rápidamente una singularidad: las ofensas al cerebro social son castigadas severamente, incluso más que lo que se esperaría por el rechazo que existe hacia ellos en la opinión común. Con respecto al Estado, destaca que “su primera y principal función es hacer respetar las creencias, las tradiciones, las prácticas colectivas, es decir, defender la conciencia común contra todos los enemigos de dentro y de fuera” (Durkheim, 2011a, 86). Como encarnación del tipo colectivo, defiende sus intereses aún cuando la misma conciencia común no logre registrar la amenaza o reaccionar conjuntamente, aún cuando los sentimientos colectivos no se vean resentidos, como portando una sensibilidad especial, más aguda. Por otro lado, al atender a las sociedades constituidas por la solidaridad mecánica, aquella que da expresión al derecho represivo, Durkheim señala que la función del órgano de la conciencia común es “mantener la cohesión social” que resulta de las semejanzas de los miembros que pertenecen allí” (Durkheim, 2011a, 107). Es interesante que describe esta capacidad como un hecho dado históricamente pero no lo extiende directamente a las sociedades diferenciadas. Volveré sobre este punto más adelante.</p>
+<p>Como mencioné antes, el desarrollo de la división del trabajo social ejerce una fuerza que obliga a los distintos individuos a especializarse, singularizarse; consecuente y progresivamente esto implica una disgregación de las funciones que participan de la conciencia común. Aquí se vislumbra una polémica con Comte, quien designa al Estado como el órgano encargado de realizar y mantener la unidad entre las funciones que tienden a disolverse. Un primer acuerdo con el autor que aquí atendemos es precisamente valorar como necesario el mantenimiento de la heterogeneidad y diversidad en las funciones que componen el organismo social. El punto de desacuerdo viene precisamente de la característica <em>derivada</em> del Estado, que no hace más que <em>expresar</em> la unidad, la solidaridad que se gesta en otro lado. En sus palabras:</p>
+<p>Si, pues, la división del trabajo tiene los efectos dispersivos que se le atribuye, deben desenvolverse sin resistencia en esta región de la sociedad, puesto que nada hay en ella que pueda contenerlos. Sin embargo, lo que hace la unidad de las sociedades organizadas, como de todo organismo, es el <em>consensus</em> espontáneo de las partes, es esa solidaridad interna que, no sólo es tan indispensable como la acción reguladora de los centros superiores, sino que es incluso la condición necesaria pues no hacen más que traducirla a otro lenguaje y, por decirlo así, consagrarla. Por eso el cerebro no crea la unidad del organismo, sino que le da expresión y lo corona. (Durkheim, 2011a, 360)</p>
+<p>Se abre así el interrogante sobre la función específica, sobre el aporte particular que realiza el Estado en las sociedades modernas. Si ya no se configura una fuerte semejanza que pueda ser objeto de la protección del órgano director, pero tampoco se le delega la unión de las funciones diversificadas por la solidaridad orgánica, ¿qué está observando Durkheim?</p>
+<p>El sociólogo francés advierte un crecimiento simultáneo tanto de la intervención social como de la actividad individual, suceso que le da oportunidad para entrar en discusión directa con otros pensadores. Particularmente, desarrolla una controversia con Herbert Spencer (1820-1903), pensador inglés que sostenía una hipótesis evolutiva con la que Durkheim discrepa, donde las nuevas sociedades industriales “se cohesionan naturalmente como resultado del intercambio entre individuos para satisfacer intereses individuales; la cooperación es espontánea, por lo cual no se requiere coerción ni regulación estatal” (Del Río &amp; Emiliozzi, 2013, 6). Para este pensador, es el mercado el mecanismo regulador central, lo que reduce al Estado a una función meramente negativa, consistente en evitar la perturbación de unos derechos individuales innatos.</p>
+<p>El argumento elemental de la polémica mencionada es el volumen del código de una sociedad; cuanto más primitiva, más pequeño el código que regula su derecho. Al acercarse a sociedades actuales, si bien se observa un cambio en la composición del código (una reducción de la participación del derecho represivo da pie a la expansión del derecho restitutivo), esto no hace más que acompañar la incorporación de distintas esferas al escrutinio público; el derecho familiar, el derecho contractual, el derecho comercial. etc. son prueba de ello. La intervención social “define y regula las relaciones especiales de las diferentes funciones sociales, y no queda aminorada por ser diferente” (Durkheim, 2011a, 206). Una extensión del margen de acción no puede más que implicar una complejización del mecanismo por el cual esta influencia es ejercida, la adquisición de un mayor volumen del propio órgano director. Si Spencer proponía un camino donde la profundización de la individualidad de los miembros de una sociedad tenía como contracara una reducción coincidente de la influencia del Estado, un Estado que cada vez más se concentra en la administración de la justicia y la fuerza militar, Durkheim lo rechaza de plano y sentencia que ese ideal es, en realidad, “la forma primitiva del Estado” (2011a, 221). Indica que “no hay contradicción alguna en que aumente la esfera de la acción individual al mismo tiempo que la del Estado”. El desenvolvimiento de la intervención no depende necesariamente de la hipertrofia de las funciones inmediatamente colocadas bajo la dependencia del aparato regulador central, sino que “puede muy bien ocurrir que adquiera más volumen al mismo tiempo que otros órganos se forman y la contrapesan”. Se incrementan los puntos de contacto y su autoridad, si bien de una manera menos violenta, se ejerce sobre “órdenes más numerosas [y en] asuntos más diversos” (2011a, 220). Parece asumir que lo que está percibiendo Spencer no es la retracción del Estado en su totalidad, sino de su momento represivo; señalando el aumento de otras facetas de su intervención parece dar por saldado el debate.</p>
+<p>En el contrapunto con Spencer emerge en el discurso durkhemiano una desviación de la “normalidad” y refiere a la intervención sobre la vida económica. Encuentra un espacio vacante antes ocupado por los gremios de oficios que, por su propio modo de existencia, no lograron sobrevivir al desarrollo de la solidaridad orgánica y la heterogeneización que atravesaron las sociedades. Indica claramente que “no queremos decir que el Estado absorba en él todos los órganos reguladores de la sociedad […] en cuanto a aquellos que rigen funciones especiales, como las económicas, están fuera de su esfera de atracción” (Durkheim, 2011a, 223). ¿Por qué atender la vida económica? Las crisis industriales y comerciales, los conflictos recurrentes y de intensidad creciente entre obreros y patrones describen una tensión no resuelta en dicho ámbito. Si la perspectiva durkhemiana requiere una sinergía que desplace los intereses particulares en pos de un interés común, las expectativas no son buenas: “los sentimientos colectivos devienen, pues, cada vez más impotentes para contener las tendencias centrífugas que fatalmente engendra la división del trabajo, pues, de una parte, esas tendencias aumentan a medida que el trabajo se divide, y, al mismo tiempo, los sentimientos colectivos mismos se debilitan”. Así las cosas, la acción de gobierno no puede mantener la “uniformidad moral [necesaria] a la fuerza y en perjuicio de la naturaleza de las cosas” (Durkheim, 2011a, 361). El dilema queda planteado: la vacancia que se abre con la desaparición de los gremios de oficios no puede ser ocupada por el Estado.</p>
+</section>
+<section id="el-problema-de-la-regulación-de-la-vida-económica" class="level2">
+<h2 class="anchored" data-anchor-id="el-problema-de-la-regulación-de-la-vida-económica">3. El problema de la regulación de la vida económica</h2>
+<p>La inquietud sobre la regulación de la vida económica seguirá siendo importante en la reflexión de Durkheim durante unos años más. Tomaré las definiciones centrales vertidas en el curso dictado entre 1895 y 1896 en Burdeos, publicado póstumamente como <em>El socialismo</em>. Vale la pena hacer una pequeña digresión: en esos mismos años se publica <em>Las reglas del método sociológico</em>, quizás de las obras más conocidas del autor. Si la Sociología debía ingresar en el grupo de las disciplinas científicas, debía tener un método propio que le permita sostener ese estatus. Por eso mismo, Durkheim define allí el objeto de estudio de la Sociología y las líneas directrices del método que debían seguir los esfuerzos en dicha disciplina. Hay dos elementos que me interesa destacar. Primero, el objeto de estudio de la Sociología como disciplina científica son, según este trabajo, los hechos sociales. Los hechos sociales emergen del conjunto de los individuos pero son externos e independientes de ellos; incluso ejercen sobre ellos una fuerza coercitiva. Al ser externos, pueden ser estudiados de manera objetiva, detectando sus caracteres fundamentales. Hay un esfuerzo importante por distinguirse de la psicología, enfocada en los estados mentales individuales. Se enfatiza en los hechos sociales como fenómenos universales, que exceden las especificidades individuales y expresan regularidades observables en la sociedad (o sectores de ella). El segundo elemento que me interesa rescatar es la distinción entre lo normal y lo patológico; inicialmente, Durkheim detalla los hechos sociales normales como aquellos regulares y aceptados dentro de una sociedad en un momento dado, mientras que lo patológico refiere a las disfunciones en el tejido social, situaciones que deben ser estudiadas en profundidad para poder intervenirse, restaurando el normal funcionamiento de una sociedad.</p>
+<p>El autor francés realiza una primera operación de interés, que es la siguiente: descarta que el socialismo sea un estudio que pueda llamarse propiamente científico. Argumenta que la ciencia consiste en “explicar lo que es y lo que ha sido”, y, por el contrario, el socialismo está “enteramente orientado hacia el futuro” (Durkheim, 1987, 12). Además, indica que lo escueto de las pruebas presentadas no se condice con la densidad de los resultados volcados en sus tesis. Si no es ciencia, ¿qué es? El autor, habiendo publicado ya <em>Las reglas del método sociológico</em>, categoriza al socialismo como un hecho social. De esta forma, establece una relación asimétrica: no discute con el socialismo, lo estudia para comprender sus caracteres principales.</p>
+<p>Después de descartar dimensiones como la propiedad privada, el tipo de régimen de gobierno y la relación del individuo con la colectividad, Durkheim define al socialismo por sus concepciones económicas, de la siguiente forma: “se denomina socialista toda doctrina que reclama la incorporación de todas las funciones económicas, o de alguna de ellas que en la actualidad son difusas, a los centros directores y conscientes de la sociedad” (1987, 30). Entiende que bajo esta corriente existen diferentes escuelas; algunas que reclaman que todas las funciones económicas deben ser incorporadas, otras que aceptan algún tipo de intermediario, “centros secundarios dotados de cierta autonomía, grupos profesionales, gremios”, un punto que volverá con mayor profundización más adelante.</p>
+<p>Para Durkheim el socialismo es una tendencia a organizar. Aquí es donde entra a jugar el Estado, concepto que interesa particularmente en este trabajo. Nuestro autor afirma que en el socialismo se habla de incorporación y no de subordinación, ya que se presupone que elevar el estatus de la vida económica cambiará la marcha del Estado, incluso lo transformaría. Si en <em>La división del trabajo social</em> los órganos directores se extienden para organizar la vida económica, en <em>El socialismo</em> plantea una imagen que podríamos entender inversa, donde la actividad económica es la que cambia de estatus y “se eleva” hacia el Estado y lo asimila. Cumplido este proceso, transformándose el Estado en el centro de la vida económica, la burguesía dejaría de tener sentido y sería el aparato regulador central el que entraría en relaciones inmediatas con la clase obrera. Por eso, “la mejora de la suerte de los obreros no es un objetivo especial, es sólo una de las consecuencias que debe necesariamente producir la incorporación de las funciones económicas a los órganos directores de la sociedad” (Durkheim, 1987, 37).</p>
+<p>Es razonable ver un diagnóstico común entre la descripción del socialismo y la propia obra del autor que nos compete. Durkheim narra que el socialismo ve un problema en un segmento de los trabajadores que no están “real y directamente integrados en la sociedad”. Así, el padecimiento consiste en no lograr recibir los beneficios de obrar en sociedad de la manera en que sería propio debido a la importancia social del servicio. En tanto problema de integración, es el enlazamiento más íntimo entre el conjunto de los trabajadores y los “centros que presiden la vida colectiva” lo que podría desanudar el punto de conflicto. En palabras del propio autor:</p>
+<p>El socialismo no se reduce a una cuestión de salarios o, como suele decirse, de estómago. Es, ante todo, una aspiración a recomponer el cuerpo social, cuyo efecto ha de ser una distinta inserción del aparato industrial en el conjunto del organismo, sacándolo de la sombra donde funcionaba automáticamente, llamándolo a la luz y al control de la conciencia. (Durkheim, 1987, 37-38)</p>
+</section>
+<section id="articulación-con-los-grupos-profesionales" class="level2">
+<h2 class="anchored" data-anchor-id="articulación-con-los-grupos-profesionales">4. Articulación con los grupos profesionales</h2>
+<p><em>El suicidio</em> es un libro publicado en 1897 como una aplicación práctica y profunda del método que Durkheim pretendía para la sociología. No se ve aquí un empleo acrítico de los pasos seguidos en <em>Las reglas del método sociológico</em>, sino más bien una demostración de las licencias necesarias para realizar un análisis fructífero. En este apartado tomará centralidad el pensamiento durkhemiano en torno a los grupos profesionales, en detrimento del propio concepto de Estado. Este movimiento es imprescindible para comprender cabalmente la arquitectura que diseña el autor para abordar simultáneamente el problema de integración social de los individuos junto con la falta de regulación en la vida económica. Además entrará en consideración lo escrito en el segundo prefacio a <em>La división del trabajo social</em> titulado “algunas observaciones sobre las agrupaciones profesionales” en el año 1902, como una extensión y profundización del primer acercamiento.</p>
+<p>Con una fuerte abundancia de datos estadísticos europeos pero sobre todo franceses, Durkheim describe en <em>El suicidio</em> los caracteres fundamentales del fenómeno homónimo y lo categoriza en cuatro tipos fundamentales: el suicidio altruísta, compuesto por quienes detentan una conexión excesivamente fuerte con la sociedad y están dispuestos a sacrificarse por el bien común; el suicidio egoísta, causado por la falta de integración social y ausencia de vínculos fuertes con la comunidad; el suicidio anómico, producido por la falta de estructura normativa y valores que funcionen como guía moral; y el suicidio fatalista, ocurre allí donde los individuos están sometidos a reglas demasiado opresivas.</p>
+<p>El sociólogo francés ve en el suicidio egoísta y en el anómico un fenómeno patológico, ya que, si bien la integración deficiente es una consecuencia evidente e inevitable de “toda moral de progreso y perfeccionamiento”, el nivel de ascenso en los casos de estos tipos de suicidios y el relajamiento del sistema represivo sobre el mismo asunto es observado como atípico. No es simplemente la narración de un suceso, es una exhortación a la intervención: Durkheim advierte que este crecimiento desmedido se vuelve “más amenazador cada día que pasa” (Durkheim, 1897, 377). La línea lógica seguida aquí es casi evidente. Si el ascenso de los tipos patológicos de suicidio no es más que otro síntoma de la falta de integración social que aqueja a la sociedad francesa, de la incapacidad de la sociedad de “mantener a todos los individuos bajo su dependencia”, es menester que “el individuo se sienta más solidario de un ser colectivo que le ha precedido en el tiempo, que le sobrevive y le supera por todas partes”, para asimilar que su propia conducta “sirva para algo”. Así las cosas, se vuelve imperioso “dar a los grupos sociales bastante consistencia, para que mantenga más firmemente al individuo, y que éste, a su vez, se sostenga unido a ellos” (Durkheim, 1897, 380). Si bien los individuos tienen múltiples grupos de pertenencia, no es cualquiera el que tiene la capacidad de subsanar este punto de conflicto. Definitivamente no es el Estado, que se halla “muy lejos de estas manifestaciones complejas como para encontrar la forma concreta que conviene a cada una de ellas”. Falta de flexibilidad es el concepto clave que explica su incapacidad, donde el intento de establecer reglas no hace más que violentar el objeto de su reglamentación. La sociedad política en general adolece de la misma falta; la sociedad religiosa, por su parte, requiere en su proceso de socialización la reducción de la capacidad de libre examen; y por último, se vislumbra una tendencia estadística a el establecimiento de hogares más pequeños y separados, desarmando la opción de la familia como grupo integrador. Nuestro autor, sin la costumbre de desplegar preguntas sin respuesta, concluye que hay un solo grupo que puede cubrir el rol antedicho: es el grupo “que forman, como asociados, todos los trabajadores del mismo orden, todos los cooperadores de la misma función, es el grupo profesional o la corporación” (Durkheim, 1897, 385).</p>
+<p>El autor reconoce la existencia de las viejas corporaciones, cuyas características le impedían conservar el sentido en una nación moral y políticamente unificada. La cercanía de las corporaciones con los individuos tenía como contracara un desmedido nivel de autonomía respecto del cerebro social, inviable en un contexto de extensión de las ramificaciones y competencias del órgano gubernamental, que progresivamente subordinaba con más intensidad a los grupos secundarios para ligarlos al conjunto de la vía nacional. En la práctica, el diseño de las corporaciones como un Estado dentro de otro Estado derivó en su propia extinción. Sin embargo, al suprimir lo que existía sin sustituirlo convenientemente, “no se ha hecho más que sustituir el egoísmo corporativo con el egoísmo individual, que es aún más disolvente” (Durkheim, 1897, 388). Ahora bien, es destacable que la profesión tomó un rol preponderante en la actividad vital humana, ocupando no sólo la mayor parte del tiempo diario sino también la mayor parte de la vida misma. Y, como bien se vió en <em>La división del trabajo social</em>, las funciones profesionales están dirigidas hacia la colectividad. Podemos leerlo claramente en palabras del propio autor:</p>
+<p>Como la vida profesional es casi toda la vida, la acción corporativa se hace sentir sobre todos los detalles de nuestras ocupaciones, que están así orientadas en un sentido colectivo. La corporación tiene todo lo necesario para enmarcar al individuo, para sacarle de su estado de aislamiento, y, dada la insuficiencia actual de los otros grupos, ella es la única que puede cumplir esta indispensable función. (Durkheim, 1897, 386)</p>
+<p>El aporte fundamental de los grupos profesionales requiere cambios profundos en su propia institucionalidad para poder convivir y contribuir a la disposición actual de los órganos que rigen la vida colectiva. Es primordial que, en vez de un grupo privado permitido por ley e ignorado por el Estado, sea un “órgano definido y reconocido de nuestra vida pública”, con la determinación de regular las funciones económicas, organizarlas. Los grupos profesionales serían responsables de moderar las confrontaciones, limitando la fuerza ejercida por los más fuertes, limitando también las reivindicaciones de los más débiles, recordarles “a los unos y a los otros el sentimiento de sus deberes recíprocos y del interés general”. La imposición de límites, arguye Durkheim, permitiría apaciguar la disputa abierta entre los diferentes sectores al interior de cada rama de la actividad económica. Reglamentar la producción “establecería una disciplina moral, de un género nuevo, sin la cual todos los descubrimientos de la ciencia y todos los progresos del bienestar social no podrían engendrar nunca más que descontentos” (Durkheim, 1897, 390). La distancia con otras reflexiones en torno al conflicto entre “fuertes y débiles” dentro de la esfera económica es notoria; no es la organización y lucha de los segmentos postergados la vía necesaria para desanudar el abuso y la explotación, sino la acción de un órgano que contemple ambos actores pero que los exceda, un órgano cercano a los individuos pero que los sobrepase y tenga potestad para regularlos; imponer, a costa de sus intereses particulares, el bien común. No se está dando, hasta aquí por lo menos, un contenido o dirección específica a esa intervención. Más bien es un diseño, la construcción de una forma adecuada de convivencia, una forma que privilegia la moderación de las pasiones, la cercanía con los individuos y el respeto de la diversidad funcional dentro de la que cada uno ejerce su vida profesional. La regulación económica también implica dirigir las cajas de seguro, asistencia y retiro, dirección que difícilmente pueda ser ejercida por las disposiciones poderosas e inhábiles del Estado. Aún así, la intervención de éste último tiene un lugar específico que tomar:</p>
+<p>Por ser un grupo, domina desde bastante altura a los individuos y pone límites a sus apetitos; pero vive demasiado su vida para no simpatizar con sus necesidades. No deja de ser cierto, por otra parte, que el Estado tiene también importantes funciones que cumplir. El sólo puede oponer el particularismo de cada corporación, el sentimiento de la utilidad general y las necesidades del equilibrio orgánico. Pero sabemos que su acción no puede ejercerse útilmente más que cuando existe todo un sistema de órganos secundarios que la diversifiquen. (Durkheim, 1897, 391)</p>
+<p>Es interesante que, aún en el desarrollo sobre los grupos profesionales, se desliza un carácter particularmente novedoso del Estado; no aparece como mera <em>derivación</em> de la sociedad de la que emerge; ahora puede observarse una personalidad moral preocupada por mantener el orden, mediando entre partes en confrontación o trabajando sobre la desintegración social que prima entre las personas. Sobre la función del Estado, veamos las propias palabras del autor:</p>
+<p>En primer lugar es el árbitro designado por modo natural para solucionar los conflictos de intereses y asignar a cada uno de estos los límites que convengan. En segundo lugar es la primera interesada en que reinen el orden y la paz; si la anomia es un mal, lo es, ante todo, porque la sociedad la sufre, no pudiendo prescindir, para vivir, de cohesión y regularidad. Una reglamentación moral o jurídica expresa, pues, esencialmente, necesidades sociales que solo la sociedad puede conocer; descansa sobre un estado de opinión y toda opinión es cosa colectiva producto de una elaboración colectiva. Para que la anomia termine es preciso, pues, que exista que se forme un grupo en el cual pueda constituirse el sistema de reglas que por el momento falta. (Durkheim, 2011a, 11)</p>
+<p>El Estado es definido por el autor como la única fuerza colectiva que sobrevive al cambio profundo producido por la primacía de la solidaridad orgánica en las sociedades. Su tendencia propia fue absorber “todas las formas de actividad que podían presentar un carácter social”, cohesionando -de una manera deficiente, incompleta- a la masa de individuos. Esta incorporación implica una sobrecarga que bien podrían ser cumplimentadas de manera útil y conveniente por otros órganos públicos, con mayor flexibilidad y un conocimiento más profundo para adaptarse a la diversidad que impera hoy en las funciones que organizan al conjunto de las personas. La lectura de Durkheim se define en dos dimensiones: “mientras que el Estado se abulta, y se hipertrofia para llegar a encerrar fuertemente a los individuos, sin conseguirlo; éstos, sin lazos entre sí, ruedan unos sobre otros como otras tantas moléculas líquidas, sin encontrar ningún centro de fuerzas que los retengan, los fije y los organice” (1897, 397). La propuesta que deriva del diagnóstico es la descentralización, la creación de poderes morales que tengan sobre los individuos un margen de acción que el Estado mismo no puede ejercer. Encarnado por los grupos mencionados, la descentralización profesional tiene, de mínima, la capacidad de ligar a los individuos entre ellos según sus funciones profesionales al tiempo que no reduce su solidaridad con el todo social; de máxima, el autor plantea que puede ser la base de la organización política, un reemplazo a las circunscripciones territoriales, que ya no tienen una homogeneidad interna adecuada para ser la representación correcta de los individuos que allí pertenecen. Ambas requieren la organización de la corporación, su institucionalización como personalidad colectiva, la constitución de cada una como una individualidad moral. Se observa el germen de un cambio en la organización política ideal, en caso de ser las profesiones una expresión más exacta de la diversidad de los intereses sociales. Provocativamente, dice Durkheim: “Pero decir que el país, para adquirir conciencia de sí mismo, debe agruparse por profesiones, ¿no es reconocer que la profesión organizada o la corporación debería constituir el órgano esencial de la vida pública?” (Durkheim, 2011a, 34).</p>
+</section>
+<section id="el-estado-como-órgano-de-reflexión" class="level2">
+<h2 class="anchored" data-anchor-id="el-estado-como-órgano-de-reflexión">5. El Estado como órgano de reflexión</h2>
+<p>El Libro <em>Lecciones de Sociología</em> retoma un curso dado entre 1890 y 1900, mientras que el ensayo <em>El Estado</em> es un texto que reproduce un curso dado por Durkheim entre 1900 y 1905. Si bien se superponen ligeramente con el segundo prefacio que se vió anteriormente, elijo colocarlos al final porque expresan una definición más cerrada del Estado, con afirmaciones que ya no se presentan como problemas a resolver sino como un concepto determinado, de bordes firmes y funciones claras. A mi entender, existe una profundización de los cambios detectados en el segundo prefacio, que sostienen la división de responsabilidades con los grupos secundarios al tiempo que insiste en la capacidad del Estado de introducir algo en la sociedad que no estaba previamente. Antes de adentrarnos en estos textos, un pequeño paréntesis.</p>
+<p>En 1898, años antes del curso sobre el Estado pero luego de la publicación de <em>El suicidio</em>, Durkheim publica en una revista especializada en filosofía un artículo llamado <em>Representaciones individuales y representaciones colectivas</em>. Con un nombre propio que ya resonaba en el ámbito científico de su época, el autor esboza una idea que puede facilitar la comprensión de lo que vendrá después. En el artículo afirma, entre otras cosas, un bosquejo de cómo surgen los fenómenos específicamente sociales. Durkheim sostiene que, así como del cerebro se forma la conciencia, un fenómeno que no es un mero reflejo del sustrato biológico que le da origen, las representaciones colectivas surgen de las representaciones individuales, dependen de éstas para existir pero no responden de manera lineal a sus características. Dicho de otro modo, si la sociedad tiene por sustrato al conjunto de los individuos, no es una mera expresión de éstos. Delinea la capacidad de una autonomía relativa de aquello que emerge respecto de su procedencia. Durkheim habla específicamente de una “independencia parcial”, donde existe una “contingencia que las formas superiores de lo real manifiestan en relación con las formas inferiores, en el seno de las cuales, no obstante, hunden sus raíces” (Durkheim, 1898, 54). Se verá un reflejo de este mismo razonamiento en lo que sigue.</p>
+<p>En <em>Lecciones de Sociología,</em> Durkheim inicia la argumentación con el escenario donde se desarrollará la meditación subsiguiente: las sociedades políticas. Son definidas como aquellas formadas “por la reunión de un número más o menos considerable de grupos sociales secundarios, sometidos a una misma autoridad […] que se llama especialmente Estado; éste supone su existencia, no existe más que donde aquéllos [los grupos secundarios] existen” (Durkheim, 1966, 46). Complementa el cuadro afirmando que “la oposición entre gobernantes y gobernados” no es más una característica de los grupos donde circula el poder -como la familia- y no hay nada de singular en las sociedades políticas; de hecho, propone que probablemente esta diferenciación no haya existido originariamente. Un doble movimiento interesante, en línea con el debate mencionado anteriormente: niega a la lucha de clases como movimiento constitutivo del desarrollo de las sociedades políticas y, en simultáneo, coloca su elemento fundamental, mínimo, en los grupos secundarios y no en los individuos atomizados. Asimismo, la noción de autoridad se presenta no por el ejercicio del poder, “sino por la dimensión activa que habilita su papel como ámbito privilegiado de la reflexión” (Nocera, 2012, 39).</p>
+<p>Durkheim comienza el escrito <em>El Estado</em> haciendo una distinción fundamental, que no se observaba con tanta nitidez en los desarrollos vistos anteriormente. Define al Estado como “el conjunto de los únicos cuerpos sociales autorizados para hablar y actuar en nombre de toda sociedad”, y separa de sí a las administraciones, a los aparatos estatales que se encargan de ejecutar las decisiones tomadas por el órgano central. Define incluso a las administraciones como órganos secundarios, bajo la acción del Estado pero sin ser parte de su composición. Comprende así que, a lo largo de la historia, Estado se haya vuelto una expresión sinónima a sociedad política, ya que ésta, al alcanzar cierto grado de complejidad, “sólo puede seguir actuando colectivamente a través de la intervención del Estado” (Durkheim, 2012, 59).</p>
+<p>Delimitado el marco, el autor reitera la noción del Estado como emergencia de la vida colectiva, como expresión y no causa de la solidaridad que articula los diferentes órganos que actúan allí, una noción que prima en <em>La división del trabajo social</em>. Si el Estado es el emergente de la vida colectiva, pueden existir -y existen- sociedades políticas que no cuenten con la presencia de un Estado, pero en esos casos, dice Durkheim, sus decisiones no son tomadas por ser las más razonables. Aquí “semejante masa es como una multitud permanente y se sabe que la conducta de las multitudes se caracteriza por ser absolutamente irreflexiva; presiones diversas circulan en ella y la más violenta es la que desemboca en acto” (Durkheim, 2012, 59-60).</p>
+<p>Así esbozado, el Estado es “un órgano de reflexión, la inteligencia puesta en el lugar del instinto oscuro” (Durkheim, 2012, 60). Es el encargado de introducir la reflexión en la vida social, una reflexión que evidentemente tiene consecuencias sustantivas en la acción de las multitudes. Siguiendo la línea que se detalla en <em>Representaciones individuales y colectivas</em>, aún teniendo su fundamento en la sociedad política, el Estado puede y debe generar algo diferente, delinear un proceder que no es expresión inmediata de lo que ya existe, novedoso pero que contemple las tendencias en pugna. El contrapunto con las primeras aproximaciones en <em>La división del trabajo social</em> se vuelve evidente: “no es exacto decir que el Estado encarna la conciencia colectiva, pues ésta lo desborda por todos lados” (Durkheim, 1966, 51). El Estado es poseedor así de un punto de vista preferencial, es la sede de “una conciencia especial, restringida, pero más alta, más clara, que tiene de sí misma un sentimiento muy vivo” (Durkheim, 1966, 51). Por este mismo motivo, está encargado de elaborar representaciones que tienen valor para la colectividad, debe sintetizar pautas de comportamiento convenientes para el conjunto, transformando los sentimientos difusos, oscuros que circulan en una sociedad dada. En sus propias palabras:</p>
+<p>El Estado se sitúa en el punto central donde todos [los partidos en conflicto] desembocarán: porque también puede darse cuenta mejor de la complejidad de las situaciones y de todos los elementos, porque (está en condiciones) de percibir cosas que escapan a todos los partidos que las incitan y constituir para nosotros formas de conducta preferibles a todas las que de este modo le han sido aconsejadas. (Durkheim, 2012, 60)</p>
+<p>Por supuesto que el sociólogo francés pone en perspectiva histórica la acción del Estado, poniendo de relieve una distinción entre aquellos Estados que expresan sociedades inferiores y aquellos que son posteriores. Puntualiza primero dos dimensiones de la acción estatal: una exterior, cuya manifestación es esencialmente “violenta y agresiva”; una interior, cuya manifestación es básicamente “pacífica y moral”. En los Estados de las sociedades inferiores es la primera dimensión, la exterior, la que se observa preponderante. Su tarea principal, dice Durkheim, es “incrementar la potencial material de la sociedad” (Durkheim, 2012, 61). Esto puede significar la extensión de los territorios o la incorporación de ciudadanos y conlleva, por supuesto, un agudo desarrollo de la función militar. Aquí el jefe del Estado es ante todo el jefe del Ejército y por eso mismo es que el autor conecta a la función exterior del Estado con este momento de las sociedades. ¿A qué se debe? No sólo a las deficiencias económicas que administran las sociedades inferiores, sino a la representación que los individuos en ese momento se hacen del Estado: es un Estado que “no está allí para los hombres cuya acción coordina, está allí para él mismo”, convirtiéndose en el objeto de todo el empeño y sacrificio que los individuos realizan. En consecuencia, “la meta de la vida privada y de la vida pública es volverlo tan serio, fuerte y tranquilizador como sea posible” (Durkheim, 2012, 61).</p>
+<p>Si el continuo crecimiento del derecho restitutivo sobre el derecho represivo expresaba la transformación en la solidaridad que organizaba a las sociedades, también tiene algo que decirnos sobre la modificación de la función primordial del Estado, ya que todo derecho escrito depende esencialmente de la voluntad y deliberación estatal. En principio, si bien el avance es más tardío, la diferencia entre el derecho restitutivo y el derecho represivo tiene su contracara la preponderancia entre la dimensión interior y exterior antedicha: aparece cada vez con más fuerza el Estado como “el órgano de la justicia social”. Aquí el autor recupera una línea argumental de <em>La división del trabajo social</em>, donde observa una expansión progresiva del derecho escrito en nuevos ámbitos de la vida social -y con mayor profundidad-, “sometiendo a su acción toda clase de relaciones que le estaban sustraídas” (Durkheim, 2012, 61). No sólo es la creación de derechos específicos para esferas diversas -derecho contractual, derecho doméstico, derecho industrial- sino que cada uno, a su vez, adquiere una mayor solidez. Presentar al Estado como el “órgano de la justicia social” no es inocente ni accidental; su razonamiento ve un impacto del avance del derecho -y su correspondiente crecimiento en los órganos estatales- en los derechos individuales de los ciudadanos. Si “es justo dar a cada uno lo que está en derecho de exigir” (Durkheim, 2012, 62), la sociología política durkhemiana sostiene que individuo y Estado, lejos de ser mutuamente limitantes, poseen una relación positiva en el crecimiento de sus derechos y responsabilidades, respectivamente. Nuevamente vemos la posición ecléctica mencionada en la introducción: ni derechos individuales “naturales” como propone el liberalismo, ni un avance unidireccional desde el Estado como propone el marxismo. Un Estado que penetra más profundamente en la sociedad que expresa es condición necesaria para que el individuo conquiste y ejerza los derechos individuales que luego se toman como indispensables: “estos derechos han sido creados y organizados por el Estado” (Durkheim, 1966, 60). Lejos de ser una situación atemporal y permanente, el respeto y la valoración por la persona humana existe en un grado determinado de desarrollo de la vida social con su oportuno volúmen estatal. En palabras del propio autor:</p>
+<p>Se observa a las relaciones sociales volverse cada vez más justas, al tiempo que los órganos del Estado se desarrollan. […] Ahora bien, se ha vuelto hoy en día un lugar como un histórico decir que los derechos del individuo van multiplicándose y adquieren un carácter cada vez más social. Mientras en un principio la persona humana no tenía valor, hoy es la cosa sagrada por excelencia, y todo atentado dirigido contra ella nos produce el mismo efecto que los atentados contra las divinidades favorables a los fieles de las regiones primitivas. Esos progresos de la justicia y del Estado son pues posibles porque el Estado es el órgano civil de la justicia. (Durkheim, 2012, 62-63)</p>
+<p>Dicho esto, ¿cuál es exactamente la injusticia que es combatida por el avance de la injerencia del Estado? Según Durkheim, la fuente principal de la injusticia proviene de la desigualdad; esto es, la heterogeneidad entre los diferentes grupos brinda a alguno de ellos mayor capacidad para subordinar a otros a situaciones de ausencia de los derechos individuales antes mencionados; “castas, clases, corporaciones, camarillas de toda índole, todas [las] personas económicas” (Durkheim, 2012, 62). Sólo existe un órgano que se encuentra por encima de los distintos grupos secundarios, que posee “una fuerza igual (soberana) más elevada que todas las otras”, que es capaz de “contenerlas y prevenir sus excesos”: el Estado. Esta tensión no le resulta problemática al autor, no la toma como -diría en un momento anterior de sus obras- una conducta patológica. El sociólogo francés afirma que “las sociedades complejas [son] el instrumento necesario por el cual se realiza la igualdad, y, por consiguiente, la justicia” (Durkheim, 2012, 62).</p>
+<p>Cuando Durkheim se refiere a la conciencia gubernamental como ese espacio reflexivo, de producción de la conducta deseable, indica que puede concentrarse en los órganos correspondientes o “desparramarse” en el conjunto de la sociedad. El grado de permeabilidad que posee el órgano de gobierno respecto de los individuos permiten hacer más maleable y flexible la acción del Estado, más sensible al conjunto de los ciudadanos. Sobre este gradiente de comunicación entre ambos órganos es donde Durkheim sitúa la noción de democracia: “cuanto más estrecha se hace la comunicación entre la conciencia gubernamental y el resto de la sociedad, más se extiende esta conciencia y comprende más cosas, mayor es el carácter democrático de la sociedad” (Durkheim, 1966, 82). Parece observar en el desarrollo democrático el reemplazo de las costumbres por la reflexión mentada y producida en el órgano de gobierno y aquí se pone de manifiesto un equilibrio delicado con el avance de la libertad individual a la que parecía tender la ampliación del Estado. Si el hombre no puede ir contra la naturaleza de las cosas, “ser autónomo es […] comprender las necesidades a las cuales debe plegarse y aceptarlas con conocimiento de causa” (Durkheim, 1966, 88).</p>
+<p>¿Por qué es de interés? Durkheim atribuye al despliegue de la individualidad de las personas, al pensamiento crítico y atento de las cuestiones gubernamentales un cambio constante de las leyes que se da un gobierno, una inestabilidad en la acción colectiva; “todo vacila”. Este malestar político es enlazado con el malestar social -el problema de la integración y la regulación-, como una segunda dimensión de la misma situación que aqueja a las sociedades que está observando el autor. Aquí vuelve a presentarse la arquitectura de contrapesos que el sociólogo francés trabaja desde <em>El suicidio</em>, pero en un doble sentido. Primero, se refuerza que el Estado es “más apto que cualquier otro órgano colectivo para advertir las necesidades generales de la vida en común e impedir que sean subordinadas a intereses particulares”, y este es quizás el rol más importante que encuentra Durkheim en la organización de la vida moral de un país. Dicho de otro modo: “liberar las personalidades individuales” (Durkheim, 1966, 63). ¿Cómo se introducen los grupos secundarios? Por un lado, es necesario que el Estado esté también “contenido por el conjunto de fuerzas secundarias que le están subordinadas” (Durkheim, 2012, 62), para evitar excesos y el ejercicio de tendencias tiránicas por parte de éste. Por otro lado, “son necesarios para que el Estado quede suficientemente libre del individuo” (Durkheim, 1966, 93). Lo que observa Durkheim es la inviabilidad de los grupos territoriales -los colegios electorales- como grupo secundario que mediatiza la relación entre los individuos y el órgano gubernamental. La heterogeneidad de las divisiones territoriales permite que “el elector tome partido sobre todos los problemas vitales” y no solamente sobre lo que tiene conocimiento preciso, sobre lo que le compete. Estableciendo, como sugiere, un diseño político cuyo grupo secundario fundamental sea el grupo profesional, la competencia de los individuos estaría incidiendo <em>solamente</em> en los asuntos gubernamentales de los que tiene conocimiento.</p>
+<p>Véase la característica de la perspectiva durkhemiana referida anteriormente: una ciencia que busca dilucidar <em>lo que es</em>, para derivar de allí <em>lo que debe ser</em>. En el estudio particular que nos atraviesa en este texto, Durkheim deriva la función del Estado, no sólo la actual, sino la tendencial; afirma y sostiene que el Estado tiene el <em>deber</em> de transformar el “derecho agresivo, expansivo” en “pacífico, moral, científico”. Se aleja, como es sospechable, de una transformación radical del estado de cosas, de una eliminación completa de las funciones militares; las entiende necesarias para la defensa tanto de los individuos como de la existencia moral del país. Además, es razonable interpretar que deja un lugar privilegiado a la ciencia, como esa actividad extraordinaria que permite establecer la traducción entre las demandas particulares y el bien común, como la actividad con la capacidad de introducir la reflexión entre las pasiones irreflexivas que circulan en las multitudes. Concluye el autor: “El Estado debe pues tender cada vez más no a orientar su gloria hacia la conquista de territorios nuevos, lo que siempre es injusto, sino en hacer imperar más justicia en la sociedad que personifica” (Durkheim, 2012, 63). Sin embargo, es posible presumir que la orientación de la conducción tendrá que atenerse a “la naturaleza de los hechos”, y no son los ciudadanos los que tengan la capacidad individual de producir este conocimiento. En la proyección durkheimiana, la necesidad del voto popular se pone en duda; la acción política está destinada a un perfeccionamiento de la toma de decisiones. El primer paso es la creación de la institución de los grupos profesionales. En sus propias palabras:</p>
+<p>“El primer deber es preparar lo que nos dispensará cada vez más de un papel para el cual no está hecho el individuo. Para esto, nuestra acción política consistirá en crear estos órganos secundarios que, a medida que se formen, liberarán a la vez al individuo del Estado y al Estado del individuo y permitirán, paulatinamente, la liberación de este último de una tarea para la cual no está hecho”. (Durkheim, 1966, 105).</p>
+</section>
+<section id="consideraciones-finales" class="level2">
+<h2 class="anchored" data-anchor-id="consideraciones-finales">6. Consideraciones finales</h2>
+<p>En este trabajo me propuse analizar el proceso de modificación que sufrió el concepto de Estado y su rol en la obra del sociólogo Émile Durkheim. Si bien hasta las publicaciones basadas en sus cursos sobre Sociología y sobre el Estado no se presenta un concepto definido, de límites claros y definiciones contundentes, es posible observar diferencias interesantes en las primeras aproximaciones que realiza.</p>
+<p>La lectura realizada aquí inicia con los primeros esbozos en <em>La división del trabajo social</em>, donde se observa un estado que es mera expresión de la sociedad donde se ubica. Si bien el rol regulador está claramente planteado, es un ejercicio fundamentado en la sociedad política que personifica y a la que no parece poder agregarle nada nuevo. Toda regla o norma que encuentra expresión en el Estado está previamente, por la fuerza de las costumbres, avalada por la sociedad. Durkheim ya advierte en su tesis una falta de orden en la vida económica, una situación anormal que debe ser abordada de alguna forma pero no encuentra en el Estado mismo la capacidad para resolverla.</p>
+<p>Dos años más tarde, su curso sobre <em>El socialismo</em> da pie para profundizar su análisis sobre la relación entre la vida económica de una sociedad y la intervención estatal. Describe el diagnóstico del movimiento socialista de una manera que se puede interpretar compartida: lo que está detrás del conflicto con los trabajadores y otros actores es una falta de integración adecuada de los primeros. Para resolver esta integración, Durkheim afirma que el socialismo propone la incorporación de las funciones económicas al Estado, donde las primeras se “elevan” hasta absorber al Estado. El autor, al descartar el carácter científico del movimiento socialista, muestra su desacuerdo pero deja un esquema que nos es de interés: no es el Estado el que sea capaz de organizar la vida económica de manera directa, pero tampoco es la solución una vida económica organizada centralmente desde un órgano particular. Hay que seguir buscando.</p>
+<p>Luego, con su primer acercamiento en <em>El suicidio</em> y su posterior profundización en el segundo prefacio a <em>La división del trabajo social</em>, Durkheim parece encontrar una posible solución a la falta de organización adecuada en la vida económica: los grupos profesionales. Diseña entonces un esquema de contrapesos donde los grupos secundarios encargados de la vida profesional de los individuos tienen el rol de organizar las normas y pautas adecuadas para cada actividad económica, en su diversidad, mientras conectan a los mismos individuos con el órgano central. Así, el Estado pone un piso mínimo de derechos individuales a respetar, impidiendo lo que otrora sucedió con las corporaciones, esto es, la pérdida de la especificidad del individuo en el grupo. Por otro lado, para evitar que este mismo Estado -que cada vez tiene más y mayor injerencia en la vida de las personas a través del ejercicio del derecho- se vuelva tiránico y absoluto, la organización de los grupos profesionales da un margen de libertad a los individuos. En este esquema, la disputa entre grupos profesionales y Estado se vuelve algo aceptable como parte de la vida social, cuyo resultado es un individuo que tiene la vida lo suficientemente regulada como para tener claridad de qué conducta es preferible para el bien común, con el suficiente margen de libertad para desarrollarse como ser humano singular. En su proyección, la importancia de los grupos profesionales es tal que podrían reemplazar a las divisiones territoriales como elemento mínimo de la organización política.</p>
+<p>Finalmente, en el ensayo sobre <em>El Estado</em> y en las <em>Lecciones sobre Sociología</em> se advierte una maduración importante de la definición del concepto. Primero, hay una separación entre el Estado como representante y personificación de la sociedad política y los órganos burocráticos y administrativos que se le someten, ejecutan sus designios pero no lo constituyen. Este Estado, como depositario de las tendencias contrapuestas y en conflicto que circulan en la sociedad, tiene la posibilidad y el deber de introducir un grado de reflexión en el comportamiento colectivo, de fundamentarse en lo que existe pero sintetizarlo en algo novedoso, distinto, que implique la conducta preferente para el bien común. Muy lejos queda ese Estado que es mero regulador y expresión de lo que ya existe; aquí el Estado no sólo puede sino que debe ejercer una acción diferente y preferente para el conjunto, que tienda a abordar y mitigar las desigualdades existentes en una dirección de mayor justicia social, que es simplemente “dar a cada uno lo que está en derecho de exigir” (Durkheim, 2012, 62). Por otro lado, la institucionalización de los grupos profesionales toma aquí un cariz diferente: permitiría también al Estado no verse (mal) influenciado por la falta de conocimiento específico de los integrantes de la sociedad que le da fundamento. Tendencialmente, la propuesta del autor desplaza a los individuos como juzgadores directos de las decisiones del órgano gubernamental, decisiones que serían tomadas por algún tipo de actor que pueda detectar correctamente “la naturaleza de las cosas” y diseñar una conducta colectiva con arreglo a esa misma naturaleza.</p>
+<p>Como bien indica Inda (2008) luego de este curso y hasta su muerte, el interés de Durkheim se desplaza a otros fenómenos sociales. La autoridad política pasa a ser un caso particular de la autoridad en general, fenómeno que será su centro de atención a partir de los últimos años del siglo XIX.</p>
+<p>Puede presumirse que la Sociología tendría, como ciencia privilegiada, un rol central en la producción de esa reflexión que describe como característica de la función estatal. Por supuesto que como todo desarrollo teórico abre una multiplicidad de interrogantes que resultan de sumo interés: ¿de qué manera el Estado puede garantizar el conocimiento de todas las tendencias en conflicto que circulan en la sociedad política? ¿Qué rol tiene el avance técnico y tecnológico en esa función? ¿Es posible sintetizar siempre los conflictos en un bien común? ¿Cómo se define ese norte colectivo? Por supuesto, todas exceden a los límites de este trabajo; son una pequeña muestra de lo potente y fructífera que puede ser la reflexión en torno a la sociología política durkhemiana.★</p>
+</section>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+</section>
+<section id="referencias" class="level2">
+<h2 class="anchored" data-anchor-id="referencias">Referencias</h2>
+<p>Del Río, M., &amp; Emiliozzi, S. (2013). Estado y Democracia: La vigencia del modelo conceptual y normativo de Emile Durkheim. Un contrapunto con Spencer.<br>
+Donzelot, J. (2007). <em>La invención de lo social: ensayo sobre la declinación de las pasiones políticas</em> (H. Cardoso, Trans.). Ediciones Nueva Visión.<br>
+Durkheim, É. (1898). Representaciones individuales y representaciones colectivas. <em>Revista de Metafísica y Moral</em>, <em>VI</em>.<br>
+Durkheim, É. (1966). <em>Lecciones de Sociología: física de las costumbres y el derecho</em>. Editorial Schapire.<br>
+Durkheim, É. (1987). <em>El socialismo</em>. Ediciones Akal.<br>
+Durkheim, É. (2009). <em>El suicidio</em>. Ediciones Libertador.<br>
+Durkheim, É. (2011a). <em>La división del trabajo social</em>. Ediciones Libertador.<br>
+Durkheim, É. (2011b). <em>Las reglas del método sociológico</em>. Gradifco.<br>
+Durkheim, É. (2012). <em>El Estado y otros ensayos</em> (A. P. Sosa Varrotti, Trans.). Eudeba.<br>
+Durkheim, É. (2016). <em>Sociología y ciencias sociales: textos inéditos en español</em>. Imago Mundi.<br>
+Inda, G. (2008, Mayo-agosto). La interrogante política en Émile Durkheim. El abordaje del Estado moderno en la última fase de su producción (1897-1915). <em>Revista Sociológica</em>, <em>23</em>(67), 109-148.<br>
+Nocera, P. (2012). De la autoridad de la razón a la razón de la autoridad. Durkheim y la encrucijada de la política entre la ciencia y la religión.<br>
+Nocera, P. (2016). La sociología como propedéutica de las ciencias sociales. Durkheim y los caminos de una nueva ciencia del hombre más allá de la tutela filosófica.</p>
+</section>
+</section>
+</div>
+
+
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Notas</h2>
+
+<ol>
+<li id="fn1"><p>“Emanación de la soberanía de cada individuo, de esa parcela divina entonces igualmente compartida, el poder del Estado no era más que un poder delegado y, por lo tanto, podía ser recusado por todos” (Donzelot, 2007, 55).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -1,0 +1,75 @@
+---
+title: "Disciplinas distintivas en Argentina"
+subtitle: "Egresades y trabajo formal en Argentina: un análisis regional"
+author: "Tomás Bustos"
+date: 2024-10-01
+categories: ["viz", "empleo","geo"]
+lang: es
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    toc-title: contenido 
+    page-layout: article
+---
+
+
+
+::: justificado
+*Presentada para el concurso [Contar con Datos](https://udesa.edu.ar/contar-con-datos) edición 2022.*
+
+# Disciplinas distintivas en Argentina
+
+En 2022 participamos del concurso **Contar con Datos** con un equipo interdisciplinario que combinó sociología y diseño. El trabajo se basó en la exploración de dos fuentes de datos administrativos:
+
+- el **sistema Araucano**, que reúne información sobre personas egresadas del nivel superior en Argentina;
+- los registros laborales del **SIPA**, que permiten observar trayectorias en el empleo formal.
+
+## Objetivo del análisis
+
+El objetivo fue identificar qué disciplinas presentan una **sobrerrepresentación relativa en cada región del país**, en comparación con su peso a nivel nacional, y comprender algunas de las **singularidades regionales** asociadas a la formación y la inserción laboral.
+
+A modo ilustrativo:
+
+- **Patagonia**: Ciencias del Suelo, Demografía y Geografía, e Ingeniería.
+- **Buenos Aires**: Sociología, Antropología y Servicio Social, Psicología y Comunicación.
+
+## Dimensiones analizadas
+
+Para cada carrera seleccionada se analizaron cinco dimensiones principales:
+
+1. Porcentaje de mujeres.
+2. Edad mediana al momento del egreso.
+3. Porcentaje de egresadas y egresados de instituciones estatales.
+4. Salario mediano en 2021.
+5. Porcentaje de egresados que trabajan en grandes empresas.
+
+Además, se identificó un **Top 3 de sectores laborales** en los que se desempeñan las personas egresadas de cada disciplina.
+
+## Alcances y limitaciones
+
+Una limitación importante del análisis es el **distinto grado de informalidad laboral entre disciplinas**, lo que afecta la comparabilidad de algunos indicadores. Aun así, el ejercicio permitió explorar patrones relevantes y generar una visualización sintética de los resultados.
+
+## Equipo de trabajo
+
+El proyecto fue desarrollado junto a:
+
+- Laia Domenech Burin  
+- Tomás David Perelsztein  
+- Rodrigo Jara Alvarez  
+- Lara Pizarro  
+- Ornela Brutto
+:::
+
+## Infografía
+
+JPG:
+![](disciplinas-distintivas-argentina.jpg){fig-alt="Infografía sobre disciplinas y trayectorias laborales" fig-align="center"}
+
+PDF:
+<iframe 
+  src="disciplinas-distintivas-argentina.pdf" 
+  width="100%" 
+  height="600px"
+  style="border: 1px solid #ddd;">
+</iframe>

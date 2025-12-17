@@ -1,6 +1,3 @@
-# Observatorio de Economía Política
+# ¡Bienvenidos!
 
-Bienvenidos al sitio del observatorio.
-
-![](assets/images/oep_logo.png)
-
+Bienvenidos a mi sitio personal. Aquí podrás encontrar mi [experiencia docente](docencia/docencia.qmd), [publicaciones]() y una [bitácora]() con análisis hechos a lo largo de estos años. ¡Aún en construcción!

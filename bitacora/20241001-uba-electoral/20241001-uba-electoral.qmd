@@ -1,0 +1,32 @@
+---
+title: "UBA electoral"
+subtitle: "Análisis de datos electorales"
+author: "Tomás Bustos"
+date: 2024-10-01
+categories: ["proyectos", "electoral"]
+lang: es
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    toc-title: contenido 
+    page-layout: article
+---
+
+::: justificado
+*Presentada para el concurso [Contar con Datos](https://udesa.edu.ar/contar-con-datos) edición 2024.*
+
+# UBA electoral
+
+UBA electoral es la aplicación de resultados electorales de las diferentes facultades de la Universidad de Buenos Aires.
+
+La aplicación consta de tres partes: una parte introductoria donde se puede ver cómo utilizar la página, por qué es importante que exista y algunos detalles metodológicos.
+
+En la segunda parte nos adentramos en el análisis por facultad: hay un paneo general para ver las fuerzas ganadoras de cada año y después un análisis pormenorizado de cada facultad, el corazón de la aplicación. Aquí se puede ver la evolución de la participación, el resultado de las distintas fuerzas (con un breve análisis escrito y un gráfico interactivo) y cómo quedaron las bancas en el Consejo Directivo en cada año.
+
+Por último en Exploración de datos se puede navegar la información con más libertad. Hay una serie de filtros, nuevamente un gráfico interactivo que se puede ver tanto en porcentaje como votos absolutos, una muestra de la base de datos que estamos explorando y un botón para descargar la información de manera sencilla.
+
+[La aplicación se puede consultar aquí.](https://uba-electoral.streamlit.app/)
+
+![](ubaelectoral.png)
+:::
