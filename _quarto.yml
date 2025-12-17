@@ -4,10 +4,11 @@ project:
 
 website:
   title: "Tomás Bustos"
+  site-url: https://bustosthl.github.io/hola-mundo/
   favicon: assets/img/favicon.png
   
   open-graph: 
-    image: assets/img/favicon.png
+    image: /assets/img/favicon.png
     description: "Mi sitio personal."
 
   navbar:
