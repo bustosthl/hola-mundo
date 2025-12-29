@@ -2,10 +2,10 @@
 ---
 title: "Bitácora"
 lang: es
-listing:
-  contents: bitacora
-  sort: "date desc"
-  filter-ui: true
-  categories: true
+listing: 
+  contents: bitacora 
+  sort: "date desc" 
+  filter-ui: true 
+  categories: true 
   fields: [title, subtitle, date, categories]
 ---

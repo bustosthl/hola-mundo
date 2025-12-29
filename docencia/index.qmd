@@ -18,7 +18,7 @@ format:
 :::::
 
 ::: cv-description
-A cargo del curso *Mapas en Acción*, orientado al análisis de datos geoespaciales y a la visualización aplicada a problemáticas sociales mediante R.
+A cargo del curso [*Mapas en Acción*](https://bustosthl.github.io/mapas_en_accion/), orientado al análisis de datos geoespaciales y a la visualización aplicada a problemáticas sociales mediante R.
 :::
 
 ::::: cv-entry
