@@ -11,7 +11,7 @@ format:
     toc-depth: 3
     toc-title: contenido 
     page-layout: article
-    css: /assets/styles.css
+    css: ../assets/styles.css
 execute:
   echo: false
   warning: false
