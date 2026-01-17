@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Tomás Bustos">
+
+<title>Elecciones en la Universidad de Buenos Aires – Tomás Bustos</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<link href="../../assets/img/favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<link href="../../site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+
+<script src="../../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+<script src="../../site_libs/plotly-binding-4.11.0/plotly.js"></script>
+
+<script src="../../site_libs/typedarray-0.1/typedarray.min.js"></script>
+
+<script src="../../site_libs/jquery-3.5.1/jquery.min.js"></script>
+
+<link href="../../site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+
+<script src="../../site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+
+<link href="../../site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+
+<script src="../../site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="stylesheet" href="../../assets/styles.css">
+<meta property="og:title" content="Elecciones en la Universidad de Buenos Aires (2011–presente) – Tomás Bustos">
+<meta property="og:description" content="Mi sitio personal.">
+<meta property="og:image" content="https://bustosthl.github.io/hola-mundo//assets/img/tb.png">
+<meta property="og:site_name" content="Tomás Bustos">
+<meta property="og:image:height" content="1024">
+<meta property="og:image:width" content="1024">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Tomás Bustos</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navegación de palanca" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../cv/index.html"> 
+<span class="menu-text">cv</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../docencia/index.html"> 
+<span class="menu-text">docencia</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../bitacora.html#category=publicaciones"> 
+<span class="menu-text">publicaciones</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-bitácora" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">bitácora</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-bitácora">    
+        <li>
+    <a class="dropdown-item" href="../../bitacora.html#category=proyectos">
+ <span class="dropdown-text">proyectos</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../bitacora.html#category=viz">
+ <span class="dropdown-text">viz</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../bitacora.html#category=informes">
+ <span class="dropdown-text">informes</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="../../bitacora.html">
+ <span class="dropdown-text">bitácora completa</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="mailto:bustosth@gmail.com"> <i class="bi bi-envelope" role="img" aria-label="Email">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/tomasbustos"> <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/bustosthl"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Elecciones en la Universidad de Buenos Aires</h1>
+<p class="subtitle lead">Participación, competencia y representación en el sistema electoral universitario</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">analisis</div>
+    <div class="quarto-category">electoral</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor/a</div>
+    <div class="quarto-title-meta-contents">
+             <p>Tomás Bustos </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de publicación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">17 de enero de 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="justificado">
+<section id="los-datos" class="level2">
+<h2 class="anchored" data-anchor-id="los-datos">Los datos</h2>
+<p>Este informe presenta un análisis exploratorio de los resultados electorales en las distintas facultades de la Universidad de Buenos Aires sucedidos en los últimos 15 años.</p>
+<p>Los datos, inaccesibles en la práctica, fueron obtenidos mediante solicitudes de acceso a la información pública que disponibilizaron una serie de impresiones escaneadas. Obligados por el estado de las fuentes, cada facultad presenta distintos niveles de cobertura sobre sus propios comicios. Para las últimas 4 elecciones se cubrieron los huecos con información disponible en internet de libre acceso.</p>
+<div class="uba-cards">
+  <div class="card">
+    <div class="card-number">13</div>
+    <div class="card-label">Facultades</div>
+  </div>
+  <div class="card">
+    <div class="card-number">189</div>
+    <div class="card-label">Elecciones</div>
+  </div>
+  <div class="card">
+    <div class="card-number">418</div>
+    <div class="card-label">Listas</div>
+  </div>
+</div>
+</section>
+<section id="quiénes-votan" class="level2">
+<h2 class="anchored" data-anchor-id="quiénes-votan">¿Quiénes votan?</h2>
+<p>Todas las facultades votan, pero no en todas vota la misma cantidad de gente. Un dato que no por conocido no deja de ser interesante. Para el claustro de estudiantes, clara predominancia de la facultad de Medicina.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>En el claustro de graduados, aparecen Económicas, Sociales y Derecho acompañando a Medicina en el podio.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>El claustro de profesores vuelve a presentar un cambio. Económicas obtiene el primer lugar y aparecen las facultades de Ingeniería y Exactas que no presentaban números considerables en los otros dos claustros. Medicina relegado a un 5 puesto.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="la-competencia-entre-estudiantes" class="level2">
+<h2 class="anchored" data-anchor-id="la-competencia-entre-estudiantes">La competencia entre estudiantes</h2>
+<p>La cantidad de listas es una buena proxy de cuán disputada está una elección. Algunas facultades concentran la competencia; en otras, directamente no hay demasiado para elegir.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-5342b2ee1bf35ac3d0a4" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-5342b2ee1bf35ac3d0a4">{"x":{"data":[{"x":[2015,2017,2019,2022,2024],"y":[5,5,4,4,4],"text":["Facultad: Agronomía<br>Año: 2015<br>Listas: 5","Facultad: Agronomía<br>Año: 2017<br>Listas: 5","Facultad: Agronomía<br>Año: 2019<br>Listas: 4","Facultad: Agronomía<br>Año: 2022<br>Listas: 4","Facultad: Agronomía<br>Año: 2024<br>Listas: 4"],"type":"scatter","mode":"lines+markers","line":{"width":1.5118110236220474,"color":"rgba(248,118,109,0.7)","dash":"solid"},"hoveron":"points","name":"Agronomía","legendgroup":"Agronomía","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(248,118,109,1)"}},"frame":null},{"x":[2011,2013,2015,2017,2019,2022,2024],"y":[6,9,7,7,6,8,6],"text":["Facultad: Arquitectura, Diseño y Urbanismo<br>Año: 2011<br>Listas: 6","Facultad: Arquitectura, Diseño y Urbanismo<br>Año: 2013<br>Listas: 9","Facultad: Arquitectura, Diseño y Urbanismo<br>Año: 2015<br>Listas: 7","Facultad: Arquitectura, Diseño y Urbanismo<br>Año: 2017<br>Listas: 7","Facultad: Arquitectura, Diseño y Urbanismo<br>Año: 2019<br>Listas: 6","Facultad: Arquitectura, Diseño y Urbanismo<br>Año: 2022<br>Listas: 8","Facultad: Arquitectura, Diseño y Urbanismo<br>Año: 2024<br>Listas: 6"],"type":"scatter","mode":"lines+markers","line":{"width":1.5118110236220474,"color":"rgba(225,138,0,0.7)","dash":"solid"},"hoveron":"points","name":"Arquitectura, Diseño y Urbanismo","legendgroup":"Arquitectura, Diseño y Urbanismo","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(225,138,0,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(225,138,0,1)"}},"frame":null},{"x":[2011,2013,2015,2017,2019,2022,2024],"y":[13,15,15,14,15,16,16],"text":["Facultad: Cs. Económicas<br>Año: 2011<br>Listas: 13","Facultad: Cs. Económicas<br>Año: 2013<br>Listas: 15","Facultad: Cs. Económicas<br>Año: 2015<br>Listas: 15","Facultad: Cs. Económicas<br>Año: 2017<br>Listas: 14","Facultad: Cs. Económicas<br>Año: 2019<br>Listas: 15","Facultad: Cs. Económicas<br>Año: 2022<br>Listas: 16","Facultad: Cs. Económicas<br>Año: 2024<br>Listas: 16"],"type":"scatter","mode":"lines+markers","line":{"width":1.5118110236220474,"color":"rgba(190,156,0,0.7)","dash":"solid"},"hoveron":"points","name":"Cs. Económicas","legendgroup":"Cs. Económicas","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(190,156,0,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(190,156,0,1)"}},"frame":null},{"x":[2015,2017,2019,2022,2024],"y":[6,5,5,4,9],"text":["Facultad: Cs. Exactas y Naturales<br>Año: 2015<br>Listas: 6","Facultad: Cs. Exactas y Naturales<br>Año: 2017<br>Listas: 5","Facultad: Cs. Exactas y Naturales<br>Año: 2019<br>Listas: 5","Facultad: Cs. Exactas y Naturales<br>Año: 2022<br>Listas: 4","Facultad: Cs. Exactas y Naturales<br>Año: 2024<br>Listas: 9"],"type":"scatter","mode":"lines+markers","line":{"width":1.5118110236220474,"color":"rgba(140,171,0,0.7)","dash":"solid"},"hoveron":"points","name":"Cs. Exactas y Naturales","legendgroup":"Cs. Exactas y Naturales","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(140,171,0,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(140,171,0,1)"}},"frame":null},{"x":[2011,2013,2015,2017,2019,2022,2024],"y":[11,9,7,7,7,6,6],"text":["Facultad: Cs. Sociales<br>Año: 2011<br>Listas: 11","Facultad: Cs. Sociales<br>Año: 2013<br>Listas: 9","Facultad: Cs. Sociales<br>Año: 2015<br>Listas: 7","Facultad: Cs. Sociales<br>Año: 2017<br>Listas: 7","Facultad: Cs. Sociales<br>Año: 2019<br>Listas: 7","Facultad: Cs. Sociales<br>Año: 2022<br>Listas: 6","Facultad: Cs. Sociales<br>Año: 2024<br>Listas: 6"],"type":"scatter","mode":"lines+markers","line":{"width":1.5118110236220474,"color":"rgba(36,183,0,0.7)","dash":"solid"},"hoveron":"points","name":"Cs. Sociales","legendgroup":"Cs. Sociales","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(36,183,0,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(36,183,0,1)"}},"frame":null},{"x":[2011,2013,2015,2017,2019,2022,2024],"y":[3,3,3,6,5,6,4],"text":["Facultad: Cs. Veterinarias<br>Año: 2011<br>Listas: 3","Facultad: Cs. Veterinarias<br>Año: 2013<br>Listas: 3","Facultad: Cs. Veterinarias<br>Año: 2015<br>Listas: 3","Facultad: Cs. Veterinarias<br>Año: 2017<br>Listas: 6","Facultad: Cs. Veterinarias<br>Año: 2019<br>Listas: 5","Facultad: Cs. Veterinarias<br>Año: 2022<br>Listas: 6","Facultad: Cs. Veterinarias<br>Año: 2024<br>Listas: 4"],"type":"scatter","mode":"lines+markers","line":{"width":1.5118110236220474,"color":"rgba(0,190,112,0.7)","dash":"solid"},"hoveron":"points","name":"Cs. Veterinarias","legendgroup":"Cs. Veterinarias","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(0,190,112,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,190,112,1)"}},"frame":null},{"x":[2011,2013,2015,2017,2019,2022,2024],"y":[9,7,7,7,8,8,7],"text":["Facultad: Derecho<br>Año: 2011<br>Listas: 9","Facultad: Derecho<br>Año: 2013<br>Listas: 7","Facultad: Derecho<br>Año: 2015<br>Listas: 7","Facultad: Derecho<br>Año: 2017<br>Listas: 7","Facultad: Derecho<br>Año: 2019<br>Listas: 8","Facultad: Derecho<br>Año: 2022<br>Listas: 8","Facultad: Derecho<br>Año: 2024<br>Listas: 7"],"type":"scatter","mode":"lines+markers","line":{"width":1.5118110236220474,"color":"rgba(0,193,171,0.7)","dash":"solid"},"hoveron":"points","name":"Derecho","legendgroup":"Derecho","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(0,193,171,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,193,171,1)"}},"frame":null},{"x":[2011,2013,2015,2017,2019,2022,2024],"y":[3,5,6,3,5,4,4],"text":["Facultad: Farmacia y Bioquímica<br>Año: 2011<br>Listas: 3","Facultad: Farmacia y Bioquímica<br>Año: 2013<br>Listas: 5","Facultad: Farmacia y Bioquímica<br>Año: 2015<br>Listas: 6","Facultad: Farmacia y Bioquímica<br>Año: 2017<br>Listas: 3","Facultad: Farmacia y Bioquímica<br>Año: 2019<br>Listas: 5","Facultad: Farmacia y Bioquímica<br>Año: 2022<br>Listas: 4","Facultad: Farmacia y Bioquímica<br>Año: 2024<br>Listas: 4"],"type":"scatter","mode":"lines+markers","line":{"width":1.5118110236220474,"color":"rgba(0,187,218,0.7)","dash":"solid"},"hoveron":"points","name":"Farmacia y Bioquímica","legendgroup":"Farmacia y Bioquímica","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(0,187,218,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,187,218,1)"}},"frame":null},{"x":[2011,2015,2017,2019,2022,2024],"y":[8,8,9,7,8,7],"text":["Facultad: Filosofía y Letras<br>Año: 2011<br>Listas: 8","Facultad: Filosofía y Letras<br>Año: 2015<br>Listas: 8","Facultad: Filosofía y Letras<br>Año: 2017<br>Listas: 9","Facultad: Filosofía y Letras<br>Año: 2019<br>Listas: 7","Facultad: Filosofía y Letras<br>Año: 2022<br>Listas: 8","Facultad: Filosofía y Letras<br>Año: 2024<br>Listas: 7"],"type":"scatter","mode":"lines+markers","line":{"width":1.5118110236220474,"color":"rgba(0,172,252,0.7)","dash":"solid"},"hoveron":"points","name":"Filosofía y Letras","legendgroup":"Filosofía y Letras","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(0,172,252,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,172,252,1)"}},"frame":null},{"x":[2015,2017,2019,2022,2024],"y":[6,7,7,7,6],"text":["Facultad: Ingeniería<br>Año: 2015<br>Listas: 6","Facultad: Ingeniería<br>Año: 2017<br>Listas: 7","Facultad: Ingeniería<br>Año: 2019<br>Listas: 7","Facultad: Ingeniería<br>Año: 2022<br>Listas: 7","Facultad: Ingeniería<br>Año: 2024<br>Listas: 6"],"type":"scatter","mode":"lines+markers","line":{"width":1.5118110236220474,"color":"rgba(139,147,255,0.7)","dash":"solid"},"hoveron":"points","name":"Ingeniería","legendgroup":"Ingeniería","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(139,147,255,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(139,147,255,1)"}},"frame":null},{"x":[2015,2017,2019,2022,2024],"y":[8,8,7,8,8],"text":["Facultad: Medicina<br>Año: 2015<br>Listas: 8","Facultad: Medicina<br>Año: 2017<br>Listas: 8","Facultad: Medicina<br>Año: 2019<br>Listas: 7","Facultad: Medicina<br>Año: 2022<br>Listas: 8","Facultad: Medicina<br>Año: 2024<br>Listas: 8"],"type":"scatter","mode":"lines+markers","line":{"width":1.5118110236220474,"color":"rgba(213,117,254,0.7)","dash":"solid"},"hoveron":"points","name":"Medicina","legendgroup":"Medicina","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(213,117,254,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(213,117,254,1)"}},"frame":null},{"x":[2011,2013,2015,2017,2019,2022,2024],"y":[3,5,4,4,2,2,2],"text":["Facultad: Odontología<br>Año: 2011<br>Listas: 3","Facultad: Odontología<br>Año: 2013<br>Listas: 5","Facultad: Odontología<br>Año: 2015<br>Listas: 4","Facultad: Odontología<br>Año: 2017<br>Listas: 4","Facultad: Odontología<br>Año: 2019<br>Listas: 2","Facultad: Odontología<br>Año: 2022<br>Listas: 2","Facultad: Odontología<br>Año: 2024<br>Listas: 2"],"type":"scatter","mode":"lines+markers","line":{"width":1.5118110236220474,"color":"rgba(249,98,221,0.7)","dash":"solid"},"hoveron":"points","name":"Odontología","legendgroup":"Odontología","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(249,98,221,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(249,98,221,1)"}},"frame":null},{"x":[2011,2013,2015,2017,2019,2022,2024],"y":[9,6,6,7,6,6,8],"text":["Facultad: Psicología<br>Año: 2011<br>Listas: 9","Facultad: Psicología<br>Año: 2013<br>Listas: 6","Facultad: Psicología<br>Año: 2015<br>Listas: 6","Facultad: Psicología<br>Año: 2017<br>Listas: 7","Facultad: Psicología<br>Año: 2019<br>Listas: 6","Facultad: Psicología<br>Año: 2022<br>Listas: 6","Facultad: Psicología<br>Año: 2024<br>Listas: 8"],"type":"scatter","mode":"lines+markers","line":{"width":1.5118110236220474,"color":"rgba(255,101,172,0.7)","dash":"solid"},"hoveron":"points","name":"Psicología","legendgroup":"Psicología","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","marker":{"autocolorscale":false,"color":"rgba(255,101,172,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(255,101,172,1)"}},"frame":null}],"layout":{"margin":{"t":80,"r":8.6342880863428828,"b":30.220008302200085,"l":44.034869240348698},"font":{"color":"rgba(0,0,0,1)","family":"","size":17.268576172685762},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[2010.3499999999999,2024.6500000000001],"tickmode":"linear","ticktext":["2015","2020"],"tickvals":[2015,2020],"categoryorder":"array","categoryarray":["2015","2020"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":4.3171440431714405,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":13.814860938148611},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.78493528057662576,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":17.268576172685762}},"hoverformat":".2f","dtick":1},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0,17],"tickmode":"linear","ticktext":["4","8","12","16"],"tickvals":[4,8,12,16],"categoryorder":"array","categoryarray":["4","8","12","16"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":4.3171440431714414,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":13.814860938148611},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.78493528057662576,"zeroline":false,"anchor":"x","title":{"text":"Cantidad de listas","font":{"color":"rgba(0,0,0,1)","family":"","size":17.268576172685762}},"hoverformat":".2f","dtick":1},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":13.814860938148611}},"hovermode":"closest","barmode":"relative","title":{"text":"Cantidad de listas por año por facultad<br><sup>Claustro de estudiantes<\/sup>"}},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displayModeBar":true,"displaylogo":false,"modeBarButtonsToRemove":["zoom2d","pan2d","select2d","lasso2d","zoomIn2d","zoomOut2d","autoScale2d","resetScale2d"]},"source":"A","attrs":{"98fc47c85bad":{"x":{},"y":{},"colour":{},"text":{},"type":"scatter"},"98fcd2172ce":{"x":{},"y":{},"colour":{},"text":{}}},"cur_data":"98fc47c85bad","visdat":{"98fc47c85bad":["function (y) ","x"],"98fcd2172ce":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>Más listas no necesariamente implican elecciones competitivas. Este gráfico cruza cantidad de listas con margen de victoria para ver dónde la elección estuvo realmente abierta… y dónde no tanto. Odontología y Económicas se llevan el podio de los márgenes más grandes: Odontología con muy pocas listas, Económicas con muchas.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Si prestamos atención al resto de las facultades, Medicina e Ingeniería destacan como aquellas con mayor margen; en el caso de Medicina también comparte con Derecho y Filosofía y Letras el podio de mayor cantidad de listas promedio.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="la-participación-entre-graduados" class="level2">
+<h2 class="anchored" data-anchor-id="la-participación-entre-graduados">La participación entre graduados</h2>
+<p>El espacio de graduados, ¿jóvenes profesionales o docentes sin medalla? Odontología tiene casi la misma cantidad de graduados que de estudiantes votando, una anomalía absoluta. Farmacia y Bioquímica y Sociales lideran el ranking con un promedio de votos de graduados equivalentes casi a un 30% de votos de estudiantes.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="la-jerarquía-de-los-profesores" class="level2">
+<h2 class="anchored" data-anchor-id="la-jerarquía-de-los-profesores">La jerarquía de los profesores</h2>
+<p>Aunque estudiantes votan mucho más, el reparto de bancas introduce otra lógica. Este indicador estima cuántas veces “vale” un voto docente respecto a uno estudiantil. Medicina y Odontología son caras opuestas del predominio docente en las decisiones políticas de la facultad.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>La relación entre el peso del voto docente y el estudiantil se calcula como:</p>
+<p><span class="math display">\[
+\text{Valor relativo} =
+\frac{\frac{Bancas_{prof}}{Votos_{prof}}}{\frac{Bancas_{est}}{Votos_{est}}}
+\]</span></p>
+</section>
+<section id="una-propuesta" class="level2">
+<h2 class="anchored" data-anchor-id="una-propuesta">Una propuesta</h2>
+<p>Estos gráficos no agotan el análisis, son apenas una muestra de lo que puede dar una base bien construida. El desafío es construir un equipo que pueda transformar estos datos en información valiosa para la comunidad universitaria.</p>
+<p><em>Este análisis es hijo bastardo de un proyecto construido durante el 2024 llamado UBA electoral, que parió <a href="https://uba-electoral.streamlit.app/">una aplicación</a> para analizar el desempeño electoral de cada facultad.</em></p>
+</section>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/bustosthl\.github\.io\/hola-mundo\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

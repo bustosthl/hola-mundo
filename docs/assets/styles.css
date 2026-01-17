@@ -2,3 +2,33 @@
   text-align: justify;
   hyphens: auto;
 }
+
+/* ===== Cards UBA Electoral (scoped) ===== */
+
+.uba-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.2rem;
+  margin: 2rem 0;
+}
+
+.uba-cards .card {
+  background-color: #1f2933;
+  border: 2px solid #4ade80;
+  border-radius: 20px;
+  padding: 1.2rem 1rem;
+  text-align: center;
+}
+
+.uba-cards .card-number {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #ffffff;
+}
+
+.uba-cards .card-label {
+  margin-top: 0.3rem;
+  font-size: 1.05rem;
+  color: #d1d5db;
+}

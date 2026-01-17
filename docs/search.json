@@ -193,7 +193,7 @@
     "href": "bitacora.html",
     "title": "Bitácora",
     "section": "",
-    "text": "Desigualdad de ingresos en las distintas regiones argentinas\n\n\nEvolución 2003-2024: un análisis comparativo a partir de la EPH\n\n\n\ninformes\n\n\nempleo\n\n\ngeo\n\n\n\n\n\n\n1 dic 2025\n\n\n\n\n\n\n\nReseña: Está entre nosotros\n\n\n¿De dónde sale y hasta dónde puede llegar la extrema derecha que no vimos venir?\n\n\n\npublicaciones\n\n\nempleo\n\n\nelectoral\n\n\n\n\n\n\n1 dic 2025\n\n\n\n\n\n\n\nElecciones Legislativas 2025\n\n\nLas claves de la resurrección del gobierno y la decepción del peronismo\n\n\n\npublicaciones\n\n\nelectoral\n\n\n\n\n\n\n27 oct 2025\n\n\n\n\n\n\n\nDisciplinas distintivas en Argentina\n\n\nEgresades y trabajo formal en Argentina: un análisis regional\n\n\n\nviz\n\n\nempleo\n\n\ngeo\n\n\n\n\n\n\n1 oct 2024\n\n\n\n\n\n\n\nUBA electoral\n\n\nAnálisis de datos electorales\n\n\n\nproyectos\n\n\nelectoral\n\n\n\n\n\n\n1 oct 2024\n\n\n\n\n\n\n\nEl Estado en Durkheim\n\n\nDe mera encarnación a órgano de reflexión\n\n\n\npublicaciones\n\n\nsociología-política\n\n\n\n\n\n\n1 sept 2023\n\n\n\n\n\n\nNo hay resultados"
+    "text": "Desigualdad de ingresos en las distintas regiones argentinas\n\n\nEvolución 2003-2024: un análisis comparativo a partir de la EPH\n\n\n\ninformes\n\n\nempleo\n\n\ngeo\n\n\n\n\n\n\n1 dic 2025\n\n\n\n\n\n\n\nReseña: Está entre nosotros\n\n\n¿De dónde sale y hasta dónde puede llegar la extrema derecha que no vimos venir?\n\n\n\npublicaciones\n\n\nempleo\n\n\nelectoral\n\n\n\n\n\n\n1 dic 2025\n\n\n\n\n\n\n\nElecciones Legislativas 2025\n\n\nLas claves de la resurrección del gobierno y la decepción del peronismo\n\n\n\npublicaciones\n\n\nelectoral\n\n\n\n\n\n\n27 oct 2025\n\n\n\n\n\n\n\nDisciplinas distintivas en Argentina\n\n\nEgresades y trabajo formal en Argentina: un análisis regional\n\n\n\nviz\n\n\nempleo\n\n\ngeo\n\n\n\n\n\n\n1 oct 2024\n\n\n\n\n\n\n\nUBA electoral\n\n\nAnálisis de datos electorales\n\n\n\nproyectos\n\n\nelectoral\n\n\n\n\n\n\n1 oct 2024\n\n\n\n\n\n\n\nEl Estado en Durkheim\n\n\nDe mera encarnación a órgano de reflexión\n\n\n\npublicaciones\n\n\nsociología-política\n\n\n\n\n\n\n1 sept 2023\n\n\n\n\n\n\n\nElecciones en la Universidad de Buenos Aires (2011–presente)\n\n\nParticipación, competencia y representación en el sistema electoral universitario\n\n\n\nanalisis\n\n\nelectoral\n\n\n\n\n\n\nInvalid Date\n\n\n\n\n\n\nNo hay resultados"
   },
   {
     "objectID": "docencia/index.html",
@@ -201,5 +201,82 @@
     "title": "Docencia",
     "section": "",
     "text": "Docencia\n\n\nAnálisis y visualización espacial con R\n\n\nEstación R · 2025\n\n\n\nA cargo del curso Mapas en Acción, orientado al análisis de datos geoespaciales y a la visualización aplicada a problemáticas sociales mediante R.\n\n\n\nIntroducción a Python y R\n\n\nFacultad de Ciencias Sociales – UBA · 2024–2026\n\n\n\nA cargo del curso de formación profesional para la incorporación de Python en Ciencias Sociales (ediciones 2025 y 2026).\nDocente también del taller de Introducción a R para estudiantes de Sociología (edición 2024).\nMaterial del curso disponible aquí.\n\n\n\nDiplomatura “Cuestiones socioeconómicas fundamentales de la Argentina actual”\n\n\nFacultad de Ciencias Sociales – UBA · 2024 – actualidad\n\n\n\nSeguimiento de clases, elaboración de material gráfico y diseño de actividades didácticas complementarias para la diplomatura.\nPrograma y contenidos disponibles aquí.\n\n\n\nDiplomatura en Ciencias Sociales Computacionales y Humanidades Digitales\n\n\nEIDAES–UNSAM · 2022–2023\n\n\n\nA cargo de las clases de Introducción a Machine Learning en la diplomatura dictada por FactorData.\nMás información sobre la diplomatura aquí.\n\n\n\nCurso de Data Science\n\n\nDigital House · 2020–2021\n\n\n\nResponsable de la parte práctica del curso de Data Science, acompañamiento didáctico a estudiantes y corrección de evaluaciones.\nInformación del curso disponible aquí."
+  },
+  {
+    "objectID": "bitacora/20260116-uba-electoral/index.html",
+    "href": "bitacora/20260116-uba-electoral/index.html",
+    "title": "Elecciones en la Universidad de Buenos Aires",
+    "section": "",
+    "text": "Este informe presenta un análisis exploratorio de los resultados electorales en las distintas facultades de la Universidad de Buenos Aires sucedidos en los últimos 15 años.\nLos datos, inaccesibles en la práctica, fueron obtenidos mediante solicitudes de acceso a la información pública que disponibilizaron una serie de impresiones escaneadas. Obligados por el estado de las fuentes, cada facultad presenta distintos niveles de cobertura sobre sus propios comicios. Para las últimas 4 elecciones se cubrieron los huecos con información disponible en internet de libre acceso.\n\n  \n    13\n    Facultades\n  \n  \n    189\n    Elecciones\n  \n  \n    418\n    Listas\n  \n\n\n\n\nTodas las facultades votan, pero no en todas vota la misma cantidad de gente. Un dato que no por conocido no deja de ser interesante. Para el claustro de estudiantes, clara predominancia de la facultad de Medicina.\n\n\n\n\n\n\n\n\n\nEn el claustro de graduados, aparecen Económicas, Sociales y Derecho acompañando a Medicina en el podio.\n\n\n\n\n\n\n\n\n\nEl claustro de profesores vuelve a presentar un cambio. Económicas obtiene el primer lugar y aparecen las facultades de Ingeniería y Exactas que no presentaban números considerables en los otros dos claustros. Medicina relegado a un 5 puesto.\n\n\n\n\n\n\n\n\n\n\n\n\nLa cantidad de listas es una buena proxy de cuán disputada está una elección. Algunas facultades concentran la competencia; en otras, directamente no hay demasiado para elegir.\n\n\n\n\n\n\nMás listas no necesariamente implican elecciones competitivas. Este gráfico cruza cantidad de listas con margen de victoria para ver dónde la elección estuvo realmente abierta… y dónde no tanto. Odontología y Económicas se llevan el podio de los márgenes más grandes: Odontología con muy pocas listas, Económicas con muchas.\n\n\n\n\n\n\n\n\n\nSi prestamos atención al resto de las facultades, Medicina e Ingeniería destacan como aquellas con mayor margen; en el caso de Medicina también comparte con Derecho y Filosofía y Letras el podio de mayor cantidad de listas promedio.\n\n\n\n\n\n\n\n\n\n\n\n\nEl espacio de graduados, ¿jóvenes profesionales o docentes sin medalla? Odontología tiene casi la misma cantidad de graduados que de estudiantes votando, una anomalía absoluta. Farmacia y Bioquímica y Sociales lideran el ranking con un promedio de votos de graduados equivalentes casi a un 30% de votos de estudiantes.\n\n\n\n\n\n\n\n\n\n\n\n\nAunque estudiantes votan mucho más, el reparto de bancas introduce otra lógica. Este indicador estima cuántas veces “vale” un voto docente respecto a uno estudiantil. Medicina y Odontología son caras opuestas del predominio docente en las decisiones políticas de la facultad.\n\n\n\n\n\n\n\n\n\nLa relación entre el peso del voto docente y el estudiantil se calcula como:\n\\[\n\\text{Valor relativo} =\n\\frac{\\frac{Bancas_{prof}}{Votos_{prof}}}{\\frac{Bancas_{est}}{Votos_{est}}}\n\\]\n\n\n\nEstos gráficos no agotan el análisis, son apenas una muestra de lo que puede dar una base bien construida. El desafío es construir un equipo que pueda transformar estos datos en información valiosa para la comunidad universitaria.\nEste análisis es hijo bastardo de un proyecto construido durante el 2024 llamado UBA electoral, que parió una aplicación para analizar el desempeño electoral de cada facultad."
+  },
+  {
+    "objectID": "bitacora/20260116-uba-electoral/index.html#introducción",
+    "href": "bitacora/20260116-uba-electoral/index.html#introducción",
+    "title": "Elecciones en la Universidad de Buenos Aires (2011–presente)",
+    "section": "",
+    "text": "Este informe presenta una exploración descriptiva de los resultados electorales en las facultades de la Universidad de Buenos Aires desde 2011 en adelante.\nEl objetivo no es analizar fuerzas políticas específicas, sino observar patrones institucionales de participación, competencia y representación entre claustros y facultades.\nLos datos provienen de actas oficiales obtenidas mediante solicitudes de acceso a la información pública. La serie es incompleta y heterogénea, lo que se explicita a lo largo del informe."
+  },
+  {
+    "objectID": "bitacora/20260116-uba-electoral/index.html#el-universo-de-datos",
+    "href": "bitacora/20260116-uba-electoral/index.html#el-universo-de-datos",
+    "title": "Elecciones en la Universidad de Buenos Aires (2011–presente)",
+    "section": "",
+    "text": "&lt;div class=\"card-number\"&gt;189&lt;/div&gt;\n&lt;div class=\"card-label\"&gt;Elecciones&lt;/div&gt;\n\n\n&lt;div class=\"card-number\"&gt;13&lt;/div&gt;\n&lt;div class=\"card-label\"&gt;Facultades&lt;/div&gt;\n\n\n&lt;div class=\"card-number\"&gt;418&lt;/div&gt;\n&lt;div class=\"card-label\"&gt;Listas&lt;/div&gt;"
+  },
+  {
+    "objectID": "bitacora/20260116-uba-electoral/index.html#los-datos",
+    "href": "bitacora/20260116-uba-electoral/index.html#los-datos",
+    "title": "Elecciones en la Universidad de Buenos Aires",
+    "section": "",
+    "text": "Este informe presenta un análisis exploratorio de los resultados electorales en las distintas facultades de la Universidad de Buenos Aires sucedidos en los últimos 15 años.\nLos datos, inaccesibles en la práctica, fueron obtenidos mediante solicitudes de acceso a la información pública que disponibilizaron una serie de impresiones escaneadas. Obligados por el estado de las fuentes, cada facultad presenta distintos niveles de cobertura sobre sus propios comicios. Para las últimas 4 elecciones se cubrieron los huecos con información disponible en internet de libre acceso.\n\n  \n    13\n    Facultades\n  \n  \n    189\n    Elecciones\n  \n  \n    418\n    Listas"
+  },
+  {
+    "objectID": "bitacora/20260116-uba-electoral/index.html#las-elecciones-entre-los-estudiantes",
+    "href": "bitacora/20260116-uba-electoral/index.html#las-elecciones-entre-los-estudiantes",
+    "title": "Elecciones en la Universidad de Buenos Aires (2011–presente)",
+    "section": "",
+    "text": "La cantidad de listas es una buena proxy de cuán disputada está una elección. Algunas facultades concentran la competencia; en otras, directamente no hay demasiado para elegir.\n\n\n\n\n\n\nMás listas no necesariamente implican elecciones competitivas. Este gráfico cruza cantidad de listas con margen de victoria para ver dónde la elección estuvo realmente abierta… y dónde no tanto. Odontología y Económicas se llevan el podio de los márgenes más grandes: Odontología con muy pocas listas, Económicas con muchas.\n\n\n\n\n\n\n\n\n\nSi prestamos atención al resto de las facultades, Medicina e Ingeniería destacan como aquellas con mayor margen; en el caso de Medicina también comparte con Derecho y Filosofía y Letras el podio de mayor cantidad de listas promedio."
+  },
+  {
+    "objectID": "bitacora/20260116-uba-electoral/index.html#la-participación-de-los-graduados",
+    "href": "bitacora/20260116-uba-electoral/index.html#la-participación-de-los-graduados",
+    "title": "Elecciones en la Universidad de Buenos Aires (2011–presente)",
+    "section": "",
+    "text": "El espacio de graduados, ¿jóvenes profesionales o docentes sin medalla? Odontología tiene casi la misma cantidad de graduados que de estudiantes votando, una anomalía absoluta. Farmacia y Bioquímica y Sociales lideran el ranking con un promedio de votos de graduados equivalentes casi a un 30% de votos de estudiantes."
+  },
+  {
+    "objectID": "bitacora/20260116-uba-electoral/index.html#la-jerarquía-de-los-profesores",
+    "href": "bitacora/20260116-uba-electoral/index.html#la-jerarquía-de-los-profesores",
+    "title": "Elecciones en la Universidad de Buenos Aires",
+    "section": "",
+    "text": "Aunque estudiantes votan mucho más, el reparto de bancas introduce otra lógica. Este indicador estima cuántas veces “vale” un voto docente respecto a uno estudiantil. Medicina y Odontología son caras opuestas del predominio docente en las decisiones políticas de la facultad.\n\n\n\n\n\n\n\n\n\nLa relación entre el peso del voto docente y el estudiantil se calcula como:\n\\[\n\\text{Valor relativo} =\n\\frac{\\frac{Bancas_{prof}}{Votos_{prof}}}{\\frac{Bancas_{est}}{Votos_{est}}}\n\\]"
+  },
+  {
+    "objectID": "bitacora/20260116-uba-electoral/index.html#una-propuesta",
+    "href": "bitacora/20260116-uba-electoral/index.html#una-propuesta",
+    "title": "Elecciones en la Universidad de Buenos Aires",
+    "section": "",
+    "text": "Estos gráficos no agotan el análisis, son apenas una muestra de lo que puede dar una base bien construida. El desafío es construir un equipo que pueda transformar estos datos en información valiosa para la comunidad universitaria.\nEste análisis es hijo bastardo de un proyecto construido durante el 2024 llamado UBA electoral, que parió una aplicación para analizar el desempeño electoral de cada facultad."
+  },
+  {
+    "objectID": "bitacora/20260116-uba-electoral/index.html#quiénes-votan",
+    "href": "bitacora/20260116-uba-electoral/index.html#quiénes-votan",
+    "title": "Elecciones en la Universidad de Buenos Aires",
+    "section": "",
+    "text": "Todas las facultades votan, pero no en todas vota la misma cantidad de gente. Un dato que no por conocido no deja de ser interesante. Para el claustro de estudiantes, clara predominancia de la facultad de Medicina.\n\n\n\n\n\n\n\n\n\nEn el claustro de graduados, aparecen Económicas, Sociales y Derecho acompañando a Medicina en el podio.\n\n\n\n\n\n\n\n\n\nEl claustro de profesores vuelve a presentar un cambio. Económicas obtiene el primer lugar y aparecen las facultades de Ingeniería y Exactas que no presentaban números considerables en los otros dos claustros. Medicina relegado a un 5 puesto."
+  },
+  {
+    "objectID": "bitacora/20260116-uba-electoral/index.html#la-competencia-entre-estudiantes",
+    "href": "bitacora/20260116-uba-electoral/index.html#la-competencia-entre-estudiantes",
+    "title": "Elecciones en la Universidad de Buenos Aires",
+    "section": "",
+    "text": "La cantidad de listas es una buena proxy de cuán disputada está una elección. Algunas facultades concentran la competencia; en otras, directamente no hay demasiado para elegir.\n\n\n\n\n\n\nMás listas no necesariamente implican elecciones competitivas. Este gráfico cruza cantidad de listas con margen de victoria para ver dónde la elección estuvo realmente abierta… y dónde no tanto. Odontología y Económicas se llevan el podio de los márgenes más grandes: Odontología con muy pocas listas, Económicas con muchas.\n\n\n\n\n\n\n\n\n\nSi prestamos atención al resto de las facultades, Medicina e Ingeniería destacan como aquellas con mayor margen; en el caso de Medicina también comparte con Derecho y Filosofía y Letras el podio de mayor cantidad de listas promedio."
+  },
+  {
+    "objectID": "bitacora/20260116-uba-electoral/index.html#la-participación-entre-graduados",
+    "href": "bitacora/20260116-uba-electoral/index.html#la-participación-entre-graduados",
+    "title": "Elecciones en la Universidad de Buenos Aires",
+    "section": "",
+    "text": "El espacio de graduados, ¿jóvenes profesionales o docentes sin medalla? Odontología tiene casi la misma cantidad de graduados que de estudiantes votando, una anomalía absoluta. Farmacia y Bioquímica y Sociales lideran el ranking con un promedio de votos de graduados equivalentes casi a un 30% de votos de estudiantes."
   }
 ]

@@ -1,0 +1,523 @@
+---
+title: "Elecciones en la Universidad de Buenos Aires"
+subtitle: "Participación, competencia y representación en el sistema electoral universitario"
+author: "Tomás Bustos"
+date: "`r Sys.Date()`"
+categories: ["analisis", "electoral"]
+lang: es
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    toc-title: contenido 
+    page-layout: article
+    css: /assets/styles.css
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+::: justificado
+```{r}
+library(tidyverse)
+library(treemapify)
+library(scales)
+library(plotly)
+library(ggrepel)
+
+datos <- read_csv("20260116_ubaelectoral_db.csv")
+
+# limpieza mínima
+datos <- datos %>%
+mutate(
+facultad = as.factor(facultad),
+claustro = as.factor(claustro),
+)
+```
+
+## Los datos
+
+Este informe presenta un análisis exploratorio de los resultados electorales en las distintas facultades de la Universidad de Buenos Aires sucedidos en los últimos 15 años.
+
+Los datos, inaccesibles en la práctica, fueron obtenidos mediante solicitudes de acceso a la información pública que disponibilizaron una serie de impresiones escaneadas. Obligados por el estado de las fuentes, cada facultad presenta distintos niveles de cobertura sobre sus propios comicios. Para las últimas 4 elecciones se cubrieron los huecos con información disponible en internet de libre acceso. 
+
+```{r}
+resumen_universo <- datos %>%
+summarise(
+facultades = n_distinct(facultad),
+elecciones = n_distinct(paste(facultad, claustro, año)),
+listas = n_distinct(lista_nombre_nuevo, na.rm = TRUE)
+)
+
+```
+
+```{=html}
+<div class="uba-cards">
+  <div class="card">
+    <div class="card-number">`r resumen_universo$facultades`</div>
+    <div class="card-label">Facultades</div>
+  </div>
+  <div class="card">
+    <div class="card-number">`r resumen_universo$elecciones`</div>
+    <div class="card-label">Elecciones</div>
+  </div>
+  <div class="card">
+    <div class="card-number">`r resumen_universo$listas`</div>
+    <div class="card-label">Listas</div>
+  </div>
+</div>
+```
+
+## ¿Quiénes votan?
+
+Todas las facultades votan, pero no en todas vota la misma cantidad de gente. Un dato que no por conocido no deja de ser interesante. Para el claustro de estudiantes, clara predominancia de la facultad de Medicina.
+
+```{r}
+datos %>%
+  filter(claustro == "estudiantes",
+         año == 2024,
+         !is.na(votos)) %>%
+  group_by(facultad) %>%
+  summarise(votos = sum(votos),.groups = "drop") %>%
+  mutate(share = votos / sum(votos), 
+         share = as.numeric(share)) %>% 
+  ggplot(aes(area = share,fill = share,
+         label = paste0(facultad, "\n",percent(share, accuracy = 0.1)))
+         ) +
+  geom_treemap(color = "white") +
+  geom_treemap_text(
+    colour = "white",
+    place = "centre",
+    grow = TRUE,
+    reflow = TRUE,
+    fontface = "bold"
+  ) +
+  scale_fill_viridis_c(
+  option = "cividis",
+  direction = 1,
+  begin = 0.1,
+  end = 0.85,
+  guide = "none"
+) +
+  labs(
+    title = "Participación",
+    subtitle = "Claustro de estudiantes · Elecciones 2024",
+    caption = "Fuente: elaboración propia en base a actas electorales UBA"
+  ) +
+  theme_minimal(base_size = 13)
+```
+
+En el claustro de graduados, aparecen Económicas, Sociales y Derecho acompañando a Medicina en el podio.
+
+```{r}
+datos %>%
+  filter(claustro == "graduados",
+         año_nuevo == 2022,
+         !is.na(votos)) %>%
+  group_by(facultad) %>%
+  summarise(votos = sum(votos),.groups = "drop") %>%
+  mutate(share = votos / sum(votos), 
+         share = as.numeric(share)) %>% 
+  ggplot(aes(area = share,fill = share,
+         label = paste0(facultad, "\n",percent(share, accuracy = 0.1)))
+         ) +
+  geom_treemap(color = "white") +
+  geom_treemap_text(
+    colour = "white",
+    place = "centre",
+    grow = TRUE,
+    reflow = TRUE,
+    fontface = "bold"
+  ) +
+  scale_fill_viridis_c(
+  option = "cividis",
+  direction = 1,
+  begin = 0.1,
+  end = 0.85,
+  guide = "none"
+) +
+  labs(
+    title = "Participación",
+    subtitle = "Claustro de graduados · Elecciones 2021-2022",
+    caption = "Fuente: elaboración propia en base a actas electorales UBA"
+  ) +
+  theme_minimal(base_size = 13)
+```
+
+El claustro de profesores vuelve a presentar un cambio. Económicas obtiene el primer lugar y aparecen las facultades de Ingeniería y Exactas que no presentaban números considerables en los otros dos claustros. Medicina relegado a un 5 puesto.
+
+```{r}
+datos %>%
+  filter(
+    claustro == "profesores",
+    año_nuevo >= 2017,
+    año_nuevo <= 2022,
+    !is.na(votos)
+  ) %>%
+  group_by(facultad, año_nuevo) %>%
+  summarise(
+    votos_anio = sum(votos),
+    .groups = "drop"
+  ) %>%
+  group_by(facultad) %>%
+  summarise(
+    votos = mean(votos_anio),
+    .groups = "drop"
+  ) %>%
+  mutate(
+    share = votos / sum(votos),
+    share = as.numeric(share)
+  ) %>%  
+  ggplot(
+  aes(
+    area = share,
+    fill = share,
+    label = paste0(
+      facultad, "\n",
+      percent(share, accuracy = 0.1)
+    )
+  )
+) +
+  geom_treemap(color = "white") +
+  geom_treemap_text(
+    colour = "white",
+    place = "centre",
+    grow = TRUE,
+    reflow = TRUE,
+    fontface = "bold"
+  ) +
+  scale_fill_viridis_c(
+    option = "cividis",
+    direction = 1,
+    begin = 0.1,
+    end = 0.85,
+    guide = "none"
+  ) +
+  labs(
+    title = "Distribución del voto docente por facultad",
+    subtitle = "Promedio anual · Claustro de profesores (2017–2022)",
+    caption = "Fuente: elaboración propia en base a actas electorales UBA"
+  ) +
+  theme_minimal(base_size = 13)
+```
+
+## La competencia entre estudiantes
+
+La cantidad de listas es una buena proxy de cuán disputada está una elección. Algunas facultades concentran la competencia; en otras, directamente no hay demasiado para elegir.
+
+```{r}
+
+p <- datos %>%
+  filter(claustro == "estudiantes") %>%
+  group_by(facultad, año_nuevo) %>%
+  summarise(
+    listas = n_distinct(lista_nombre_nuevo, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  ggplot(aes(
+    x = año_nuevo,
+    y = listas,
+    group = facultad,
+    color = facultad,
+    text = paste0(
+      "Facultad: ", facultad, "<br>",
+      "Año: ", año_nuevo, "<br>",
+      "Listas: ", listas
+    )
+  )) +
+  geom_line(alpha = 0.7, linewidth = 0.4) +
+  geom_point(size = 1.5) +
+  labs(
+    x = NULL,
+    y = "Cantidad de listas"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(legend.position = "none")
+
+ggplotly(p, tooltip = "text") %>%
+  layout(
+    title = list(
+      text = paste0(
+        "Cantidad de listas por año por facultad",
+        "<br><sup>Claustro de estudiantes</sup>"
+      )
+    ),
+    margin = list(t = 80),
+    xaxis = list(
+      tickmode = "linear",
+      dtick = 1
+    ),
+    yaxis = list(
+      range = c(0, 17),
+      tickmode = "linear",
+      dtick = 1
+    )
+  ) %>% 
+  config(
+    displayModeBar = TRUE,
+    displaylogo = FALSE,
+    modeBarButtonsToRemove = c(
+      "zoom2d",
+      "pan2d",
+      "select2d",
+      "lasso2d",
+      "zoomIn2d",
+      "zoomOut2d",
+      "autoScale2d",
+      "resetScale2d"
+    )
+  )
+
+```
+
+Más listas no necesariamente implican elecciones competitivas. Este gráfico cruza cantidad de listas con margen de victoria para ver dónde la elección estuvo realmente abierta… y dónde no tanto. Odontología y Económicas se llevan el podio de los márgenes más grandes: Odontología con muy pocas listas, Económicas con muchas.
+
+```{r}
+resumen_facultad <- datos %>%
+  filter(
+    claustro == "estudiantes",
+    año_nuevo >= 2017,
+    año_nuevo <= 2024,
+    !is.na(porcentaje)
+  ) %>%
+  mutate(porcentaje = as.numeric(gsub(",", ".",porcentaje))) %>% 
+  group_by(facultad, año_nuevo) %>%
+  summarise(
+    listas = n_distinct(lista_nombre_nuevo),
+    margen = {
+      p <- sort(porcentaje, decreasing = TRUE)
+      (p[1] - p[2]) / 100
+    },
+    .groups = "drop"
+  ) %>%
+  group_by(facultad) %>%
+  summarise(
+    listas = mean(listas),
+    margen = mean(margen),
+    .groups = "drop"
+  ) %>% 
+  mutate(
+    facultad_label = dplyr::recode(
+      facultad,
+      "Arquitectura, Diseño y Urbanismo" = "FADU",
+      "Farmacia y Bioquímica" = "FFYB",
+      "Cs. Exactas y Naturales" = "FCEN",
+      "Cs. Veterinarias" = "FVET",
+    )
+  )  
+
+x_corte <- mean(resumen_facultad$listas)
+y_corte <- mean(resumen_facultad$margen)
+
+ggplot(
+  resumen_facultad,
+  aes(x = listas, y = margen)
+) +
+  geom_vline(
+    xintercept = x_corte,
+    linetype = "dashed",
+    color = "grey70"
+  ) +
+  geom_hline(
+    yintercept = y_corte,
+    linetype = "dashed",
+    color = "grey70"
+  ) +
+  geom_point(size = 2, alpha = 0.9) +
+  geom_text(
+    data = subset(
+      resumen_facultad,
+      facultad %in% c("Odontología", "Cs. Económicas")
+    ),
+    aes(label = facultad_label),
+    nudge_y = 0.01,
+    size = 3.8,
+    vjust=-.5, 
+  ) +
+  scale_y_continuous(
+    labels = percent_format(accuracy = 1),
+    expand = expansion(mult = c(0.05, 0.1))
+  ) +
+  scale_x_continuous(
+    expand = expansion(mult = c(0.05, 0.1))
+  ) +
+  coord_cartesian(xlim = c(0, 20), ylim = c(0, 1)) +
+  labs(
+    title = "Competencia y hegemonía electoral",
+    subtitle = "Promedio de elecciones 2017–2024 · Claustro de estudiantes",
+    x = "Cantidad promedio de listas",
+    y = "Margen de victoria"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.margin = margin(t = 20, r = 30, b = 20, l = 20)
+  )
+
+```
+
+Si prestamos atención al resto de las facultades, Medicina e Ingeniería destacan como aquellas con mayor margen; en el caso de Medicina también comparte con Derecho y Filosofía y Letras el podio de mayor cantidad de listas promedio.
+
+```{r}
+ggplot(
+  resumen_facultad,
+  aes(x = listas, y = margen, label = facultad_label)
+) +
+  geom_vline(
+    xintercept = x_corte,
+    linetype = "dashed",
+    color = "grey70"
+  ) +
+  geom_hline(
+    yintercept = y_corte,
+    linetype = "dashed",
+    color = "grey70"
+  ) +
+  geom_point(size = 2, alpha = 0.9) +
+  geom_text_repel(
+    data = subset(
+    resumen_facultad,
+    !facultad %in% c("Odontología", "Cs. Económicas")
+  ),
+    nudge_y = 0.01,
+    size = 3.5,
+    vjust=-.5
+  ) +
+  scale_y_continuous(
+    labels = percent_format(accuracy = 1),
+    expand = expansion(mult = c(0.05, 0.1))
+  ) +
+  scale_x_continuous(
+    expand = expansion(mult = c(0.05, 0.1))
+  ) +
+  coord_cartesian(
+    xlim = c(3, 10),
+    ylim = c(0, 0.5)
+  ) +
+  labs(
+    title = "Competencia y hegemonía electoral",
+    subtitle = "Detalle del espacio competitivo · Estudiantes 2017–2024",
+    x = "Cantidad promedio de listas",
+    y = "Margen de victoria"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.margin = margin(t = 20, r = 30, b = 20, l = 20)
+  )
+
+```
+
+## La participación entre graduados
+
+El espacio de graduados, ¿jóvenes profesionales o docentes sin medalla? Odontología tiene casi la misma cantidad de graduados que de estudiantes votando, una anomalía absoluta. Farmacia y Bioquímica y Sociales lideran el ranking con un promedio de votos de graduados equivalentes casi a un 30% de votos de estudiantes.
+
+```{r}
+datos %>%
+  filter(claustro %in% c("estudiantes", "graduados")) %>%
+  group_by(facultad, claustro, año_nuevo) %>%
+  summarise(votos = sum(votos), .groups = "drop") %>%
+  tidyr::pivot_wider(
+    names_from = claustro,
+    values_from = votos
+  ) %>%
+  mutate(
+    ratio = graduados / estudiantes
+  ) %>%
+  group_by(facultad) %>% 
+  summarise(
+    ratio_promedio = mean(ratio, na.rm = TRUE),
+    .groups = "drop"
+  ) %>% 
+  ggplot(aes(
+    x = reorder(facultad, ratio_promedio),
+    y = ratio_promedio
+  )) +
+  geom_col(fill = "#4b5563") +
+  geom_text(
+    aes(label = scales::number(ratio_promedio, accuracy = 0.001)),
+    hjust = 1.05,
+    color = "white",
+    size = 3.5
+  ) +
+  coord_flip() +
+  labs(
+    title = "Relación de votos: graduados vs estudiantes",
+    subtitle = "Promedio por facultad",
+    x = NULL,
+    y = NULL
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    axis.text.x = element_blank(),
+    axis.ticks.x = element_blank(),
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor = element_blank()
+  )
+```
+
+## La jerarquía de los profesores
+
+Aunque estudiantes votan mucho más, el reparto de bancas introduce otra lógica. Este indicador estima cuántas veces “vale” un voto docente respecto a uno estudiantil. Medicina y Odontología son caras opuestas del predominio docente en las decisiones políticas de la facultad.
+
+```{r}
+datos %>%
+  filter(claustro %in% c("profesores", "estudiantes")) %>%
+  group_by(facultad, claustro, año_nuevo) %>%
+  summarise(votos = sum(votos), .groups = "drop") %>%
+  tidyr::pivot_wider(
+    names_from = claustro,
+    values_from = votos
+  ) %>%
+  mutate(
+    valor_relativo =
+      (8 / profesores) / (4 / estudiantes)
+  ) %>% 
+  drop_na() %>%
+  group_by(facultad) %>% 
+  summarise(
+    valor_relativo = mean(valor_relativo, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  ggplot(aes(
+    x = reorder(facultad, valor_relativo),
+    y = valor_relativo
+  )) +
+  geom_col(fill = "#4b5563") +
+  geom_text(
+    aes(label = scales::number(valor_relativo, accuracy = 0.1)),
+    hjust = 1.05,
+    color = "white",
+    size = 3.5
+  ) +
+  coord_flip() +
+  labs(
+    title = "Valor relativo del voto docente",
+    subtitle = "Comparado con el voto estudiantil",
+    x = NULL,
+    y = "Cuántas veces vale más"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    axis.text.x = element_blank(),
+    axis.ticks.x = element_blank(),
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor = element_blank()
+  )
+
+
+```
+La relación entre el peso del voto docente y el estudiantil se calcula como:
+
+$$
+\text{Valor relativo} =
+\frac{\frac{Bancas_{prof}}{Votos_{prof}}}{\frac{Bancas_{est}}{Votos_{est}}}
+$$
+
+
+## Una propuesta
+Estos gráficos no agotan el análisis, son apenas una muestra de lo que puede dar una base bien construida. El desafío es construir un equipo que pueda transformar estos datos en información valiosa para la comunidad universitaria. 
+
+*Este análisis es hijo bastardo de un proyecto construido durante el 2024 llamado UBA electoral, que parió [una aplicación](https://uba-electoral.streamlit.app/) para analizar el desempeño electoral de cada facultad.*
+
+
+:::
