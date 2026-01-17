@@ -68,7 +68,12 @@ votos = sum(as.numeric(votos), na.rm=T)
     <div class="card-label">Listas</div>
   </div>
   <div class="card">
-    <div class="card-number">`r resumen_universo$votos`</div>
+    <div class="card-number">  `r scales::label_number(
+      scale_cut = scales::cut_short_scale(),
+      accuracy = 0.01,
+      big.mark = ",",
+      decimal.mark = "."
+    )(resumen_universo$votos)`</div>
     <div class="card-label">Votos</div>
   </div>
 </div>
