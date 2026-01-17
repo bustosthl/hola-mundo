@@ -3,7 +3,7 @@ title: "Elecciones en la Universidad de Buenos Aires"
 subtitle: "Participación, competencia y representación en el sistema electoral universitario"
 author: "Tomás Bustos"
 date: "`r Sys.Date()`"
-categories: ["analisis", "electoral"]
+categories: ["proyectos", "electoral"]
 lang: es
 format:
   html:
