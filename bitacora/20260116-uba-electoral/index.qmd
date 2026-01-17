@@ -40,14 +40,15 @@ claustro = as.factor(claustro),
 
 Este informe presenta un análisis exploratorio de los resultados electorales en las distintas facultades de la Universidad de Buenos Aires sucedidos en los últimos 15 años.
 
-Los datos, inaccesibles en la práctica, fueron obtenidos mediante solicitudes de acceso a la información pública que disponibilizaron una serie de impresiones escaneadas. Obligados por el estado de las fuentes, cada facultad presenta distintos niveles de cobertura sobre sus propios comicios. Para las últimas 4 elecciones se cubrieron los huecos con información disponible en internet de libre acceso. 
+Los datos, inaccesibles en la práctica, fueron obtenidos mediante solicitudes de acceso a la información pública que disponibilizaron una serie de impresiones escaneadas. Debido al estado de las fuentes, cada facultad presenta distintos niveles de cobertura sobre sus propios comicios. Para las últimas 4 elecciones se cubrieron los huecos con información disponible en los pocos medios que prestaron cobertura y con las redes sociales de distintas agrupaciones universitarias.
 
 ```{r}
 resumen_universo <- datos %>%
 summarise(
 facultades = n_distinct(facultad),
 elecciones = n_distinct(paste(facultad, claustro, año)),
-listas = n_distinct(lista_nombre_nuevo, na.rm = TRUE)
+listas = n_distinct(lista_nombre_nuevo, na.rm = TRUE),
+votos = sum(as.numeric(votos), na.rm=T)
 )
 
 ```
@@ -66,12 +67,16 @@ listas = n_distinct(lista_nombre_nuevo, na.rm = TRUE)
     <div class="card-number">`r resumen_universo$listas`</div>
     <div class="card-label">Listas</div>
   </div>
+  <div class="card">
+    <div class="card-number">`r resumen_universo$votos`</div>
+    <div class="card-label">Votos</div>
+  </div>
 </div>
 ```
 
 ## ¿Quiénes votan?
 
-Todas las facultades votan, pero no en todas vota la misma cantidad de gente. Un dato que no por conocido no deja de ser interesante. Para el claustro de estudiantes, clara predominancia de la facultad de Medicina.
+Todas las facultades votan, pero no en todas vota la misma cantidad de gente. Un dato que no por conocido deja de ser interesante. Para el claustro de estudiantes existe una clara predominancia de la facultad de Medicina.
 
 ```{r}
 datos %>%
@@ -108,7 +113,7 @@ datos %>%
   theme_minimal(base_size = 13)
 ```
 
-En el claustro de graduados, aparecen Económicas, Sociales y Derecho acompañando a Medicina en el podio.
+En el claustro de graduados, aparecen Económicas, Sociales y Derecho acompañando a Medicina entre los primeros puestos.
 
 ```{r}
 datos %>%
@@ -145,7 +150,7 @@ datos %>%
   theme_minimal(base_size = 13)
 ```
 
-El claustro de profesores vuelve a presentar un cambio. Económicas obtiene el primer lugar y aparecen las facultades de Ingeniería y Exactas que no presentaban números considerables en los otros dos claustros. Medicina relegado a un 5 puesto.
+El claustro de profesores muestra un cambio llamativo. Económicas obtiene el primer lugar y aparecen las facultades de Ingeniería y Exactas que no presentaban números considerables en los otros dos claustros. Medicina relegado a un 5° puesto.
 
 ```{r}
 datos %>%
@@ -207,7 +212,6 @@ datos %>%
 La cantidad de listas es una buena proxy de cuán disputada está una elección. Algunas facultades concentran la competencia; en otras, directamente no hay demasiado para elegir.
 
 ```{r}
-
 p <- datos %>%
   filter(claustro == "estudiantes") %>%
   group_by(facultad, año_nuevo) %>%
@@ -226,8 +230,26 @@ p <- datos %>%
       "Listas: ", listas
     )
   )) +
-  geom_line(alpha = 0.7, linewidth = 0.4) +
+  geom_line(alpha = 0.6, linewidth = 0.4) +
   geom_point(size = 1.5) +
+
+  ## 👇 PROMEDIO
+  stat_summary(
+    aes(
+      group = 1,
+      text = paste0(
+        "Promedio general<br>",
+        "Año: ", after_stat(x), "<br>",
+        "Listas promedio: ", round(after_stat(y), 2)
+      )
+    ),
+    fun = mean,
+    geom = "line",
+    linewidth = .8,
+    color = "black",
+    alpha = 0.9
+  ) +
+
   labs(
     x = NULL,
     y = "Cantidad de listas"
@@ -271,7 +293,7 @@ ggplotly(p, tooltip = "text") %>%
 
 ```
 
-Más listas no necesariamente implican elecciones competitivas. Este gráfico cruza cantidad de listas con margen de victoria para ver dónde la elección estuvo realmente abierta… y dónde no tanto. Odontología y Económicas se llevan el podio de los márgenes más grandes: Odontología con muy pocas listas, Económicas con muchas.
+No siempre la cantidad de listas implica elecciones más competitivas. Este gráfico cruza cantidad de listas con el margen de victoria (la diferencia entre las primeras dos listas) para ver dónde la elección estuvo realmente abierta… y dónde no tanto. Odontología y Económicas se llevan el podio de los márgenes más grandes: Odontología con muy pocas listas, Económicas con muchas.
 
 ```{r}
 resumen_facultad <- datos %>%
@@ -409,7 +431,7 @@ ggplot(
 
 ## La participación entre graduados
 
-El espacio de graduados, ¿jóvenes profesionales o docentes sin medalla? Odontología tiene casi la misma cantidad de graduados que de estudiantes votando, una anomalía absoluta. Farmacia y Bioquímica y Sociales lideran el ranking con un promedio de votos de graduados equivalentes casi a un 30% de votos de estudiantes.
+Graduados, ¿profesionales que participan de la comunidad o docentes sin papeles? Odontología tiene casi la misma cantidad de graduados que de estudiantes votando, una anomalía absoluta. Farmacia y Bioquímica y Sociales lideran el ranking con un promedio de votos de graduados equivalentes casi a un 30% de votos de estudiantes.
 
 ```{r}
 datos %>%
@@ -457,7 +479,7 @@ datos %>%
 
 ## La jerarquía de los profesores
 
-Aunque estudiantes votan mucho más, el reparto de bancas introduce otra lógica. Este indicador estima cuántas veces “vale” un voto docente respecto a uno estudiantil. Medicina y Odontología son caras opuestas del predominio docente en las decisiones políticas de la facultad.
+El voto de los profesores se ve fortalecido por dos movimientos paralelos: por un lado, eligen ocho asientos, el doble que los otros dos claustros. Por otro, su padrón es muchísimo menor que el de los otros claustros. Este indicador estima cuánto vale un voto en el claustro de profesores respecto a uno en el de estudiantes. Medicina y Odontología son caras opuestas del impacto del voto del claustro de profesores en las decisiones políticas de la facultad.
 
 ```{r}
 datos %>%
@@ -491,8 +513,8 @@ datos %>%
   ) +
   coord_flip() +
   labs(
-    title = "Valor relativo del voto docente",
-    subtitle = "Comparado con el voto estudiantil",
+    title = "Valor relativo del voto en el claustro de profesores",
+    subtitle = "Comparado con el voto en el claustro de estudiantes",
     x = NULL,
     y = "Cuántas veces vale más"
   ) +
@@ -506,18 +528,17 @@ datos %>%
 
 
 ```
-La relación entre el peso del voto docente y el estudiantil se calcula como:
+
+La relación entre el peso del voto de los profesores y el de los estudiantes se calcula como:
 
 $$
 \text{Valor relativo} =
 \frac{\frac{Bancas_{prof}}{Votos_{prof}}}{\frac{Bancas_{est}}{Votos_{est}}}
 $$
 
-
 ## Una propuesta
-Estos gráficos no agotan el análisis, son apenas una muestra de lo que puede dar una base bien construida. El desafío es construir un equipo que pueda transformar estos datos en información valiosa para la comunidad universitaria. 
+
+Estos gráficos no agotan el análisis, son apenas una muestra de lo que puede dar una base bien construida. El desafío es construir un equipo que pueda transformar estos datos en información valiosa para la comunidad universitaria.
 
 *Este análisis es hijo bastardo de un proyecto construido durante el 2024 llamado UBA electoral, que parió [una aplicación](https://uba-electoral.streamlit.app/) para analizar el desempeño electoral de cada facultad.*
-
-
 :::
