@@ -1,0 +1,297 @@
+---
+title: "Datos de SIPA - Provincias"
+subtitle: "Evolución del empleo asalariado registrado"
+author: "Tomás Bustos"
+date: 2026-03-20
+categories: ["viz", "empleo"]
+lang: es
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    toc-title: contenido 
+    page-layout: article
+    css: ../assets/styles.css
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+
+```{r}
+#| label: librerías y funciones
+library(tidyverse)
+library(readxl)
+library(lubridate)
+library(janitor)
+library(scales)
+library(plotly)
+library(patchwork)
+library(sf)
+
+# Creamos una función de limpieza personalizada
+limpiar_fechas_argentina <- function(x) {
+  # 1. Quitar asteriscos y espacios en blanco
+  x <- str_remove_all(x, "\\*") %>% str_trim()
+  
+  # 2. Manejar los números de Excel (como "40087")
+  # Si es numérico, convertir usando el origen de Excel
+  es_numero <- !is.na(as.numeric(x))
+  
+  resultado <- ifelse(
+    es_numero,
+    as.character(excel_numeric_to_date(as.numeric(x))),
+    x
+  )
+  
+  # 3. Manejar el formato "mes-año" (como "may-25")
+  # Intentamos parsear con mes abreviado y año (asumiendo que son días 1)
+  # Usamos quiet = TRUE para que no moleste con los "Notas:"
+  resultado_final <- case_when(
+    es_numero ~ as.Date(resultado),
+    str_detect(resultado, "^[a-z]{3}-[0-9]{2}$") ~ myd(paste0(resultado, "-01")),
+    resultado == "Jun-17" ~ as.Date("2017-06-01"),
+    resultado == "Jul-17" ~ as.Date("2017-07-01"),
+    TRUE ~ as.Date(NA) # "Notas:" y otros textos se vuelven NA
+  )
+  
+  return(resultado_final)
+}
+
+```
+
+
+```{r}
+#| label: limpieza de la base
+# https://www.argentina.gob.ar/trabajo/estadisticas
+# https://www.argentina.gob.ar/trabajo/estadisticas/situacion-y-evolucion-del-trabajo-registrado
+url <- "https://www.argentina.gob.ar/sites/default/files/trabajoregistrado_2512_estadisticas.xlsx"
+sheet_name="A.5.2" # asalariados en el sector privado, en miles, sin estacionalidad
+# archivo temporal
+destfile <- tempfile(fileext = ".xlsx")
+download.file(url, destfile, mode = "wb")
+df <- read_excel(destfile, sheet=sheet_name, skip=1) %>% 
+  filter(!is.na(`BUENOS AIRES`)) %>% 
+  mutate(fecha = limpiar_fechas_argentina(Período)) %>% 
+  pivot_longer(!c(fecha, Período), names_to="provincia", values_to="asalariados_miles") %>% 
+  mutate(provincia = str_replace_all(provincia, "[\r\n\t]+", " "),
+         provincia = str_replace_all(provincia, " 3/", ""),
+         provincia = str_replace_all(provincia, "Cdad. Autónoma de Buenos Aires", "CABA"))
+
+total <- df %>%
+  select(!provincia) %>% 
+  group_by(fecha, Período) %>% 
+  summarise(asalariados_miles = sum(asalariados_miles),
+         provincia="ARGENTINA")
+
+df <- df %>% 
+  bind_rows(total) %>%  
+  arrange(fecha, provincia) %>% 
+  group_by(provincia) %>% 
+  arrange(fecha) %>% 
+  mutate(indice = (asalariados_miles / first(asalariados_miles))*100)
+```
+
+
+Evolución del empleo asalariado para provincias seleccionadas.
+```{r}
+#| fig-width: 10
+#| out-width: "100%"
+provs <- c("CORRIENTES", "CHACO", "CÓRDOBA", "SANTA FE", "CHUBUT", "CATAMARCA")
+fechas_hitos <- as.Date(c("2012-01-01", "2016-01-01", "2020-01-01", "2024-01-01"))
+
+df %>% 
+  filter(provincia %in% provs) %>%  
+  ggplot(aes(x = fecha, y = indice, color = provincia)) +
+  geom_line(linewidth = 1) +
+  geom_line(data=filter(df, provincia=="ARGENTINA"), color="black", linewidth=1.2) +
+  geom_vline(xintercept = fechas_hitos, 
+             linetype = "dashed", 
+             color = "grey70", 
+             linewidth = 0.5) +
+  theme_minimal() +
+  labs(title = "Evolución del Empleo Asalariado Registrado",
+       subtitle = "Evolución Relativa (Base 100 = 2009)",
+       x = NULL, y = "Índice")+
+  theme(legend.position="bottom")
+
+```
+
+Evolución del empleo asalariado para todas las provincias. 
+```{r}
+#| fig-width: 10
+#| out-width: "100%"
+#| # 1. Preparación de datos
+df_provincias <- df %>% filter(provincia != "ARGENTINA")
+df_argentina <- df %>% filter(provincia == "ARGENTINA")
+nombres_provs <- sort(unique(df_provincias$provincia))
+
+# 2. Definimos una paleta de colores para las provincias
+# Usamos 'Viridis' o 'Alphabet' para que haya suficiente contraste entre las 24
+colores_provs <- colorRampPalette(RColorBrewer::brewer.pal(8, "Set2"))(length(nombres_provs))
+
+# 3. Iniciamos el gráfico
+p <- plot_ly(type = 'scatter', mode = 'lines')
+
+# Capa de Provincias con COLORES
+for(i in seq_along(nombres_provs)) {
+  prov <- nombres_provs[i]
+  df_p <- df_provincias %>% filter(provincia == prov)
+  
+  p <- p %>% add_trace(
+    x = df_p$fecha, y = df_p$indice,
+    name = prov,
+    # Asignamos color de la paleta
+    line = list(color = colores_provs[i], width = 1.8),
+    hovertemplate = paste(
+      "<b>Fecha:</b> %{x|%b %Y}<br>",
+      "<b>Provincia:</b>", prov, "<br>",
+      "<b>Índice (vs 2009):</b> %{y:.1f}<br>",
+      "<b>Asalariados (miles):</b> %{customdata:.1f}<extra></extra>"
+    ),
+    customdata = df_p$asalariados_miles,
+    # Las provincias aparecen apagadas por defecto para no saturar? 
+    # O prendidas? Aquí las dejo visibles, pero el usuario puede doble-clic
+    visible = TRUE 
+  )
+}
+
+# Capa superior: TOTAL NACIONAL (Negro y Grueso)
+p <- p %>% add_trace(
+  data = df_argentina,
+  x = ~fecha, y = ~indice,
+  name = "<b>TOTAL NACIONAL</b>",
+  line = list(color = 'black', width = 4),
+  hovertemplate = paste(
+    "<b>Fecha:</b> %{x|%b %Y}<br>",
+    "<b>Jurisdicción:</b> TOTAL NACIONAL<br>",
+    "<b>Índice (vs 2009):</b> %{y:.1f}<br>",
+    "<b>Asalariados (miles):</b> %{customdata:.1f}<extra></extra>"
+  ),
+  customdata = ~asalariados_miles
+)
+
+# 4. Layout
+p <- p %>% layout(
+  title = list(
+    text = paste0("<b>Evolución del Empleo Asalariado Registrado</b>",
+                  "<br><sup>Interactua con la leyenda para destacar o remover provincias.</sup>"),
+    x = 0, font = list(size = 20)
+  ),
+  xaxis = list(title = "", showgrid = FALSE),
+  yaxis = list(title = "Índice", gridcolor = "#F0F0F0"),
+  hovermode = "closest",
+  legend = list(
+    orientation = "h",
+    y = -0.2, # Ajustado para que no se pise con la fuente
+    x = 0.5,
+    xanchor = "center",
+    font = list(size = 10)
+  ),
+  annotations = list(
+    list(
+      x = 1, y = -0.2, # Bajamos la fuente un poco más
+      text = "Fuente: elaboración propia con datos de SIPA", 
+      showarrow = FALSE, xref='paper', yref='paper', 
+      xanchor='right', yanchor='auto',
+      font = list(size = 11, color = "grey")
+    )
+  ),
+  margin = list(t = 80, b = 150, l = 50, r = 20),
+  plot_bgcolor = "white"
+) %>% 
+  config(displayModeBar = FALSE)
+
+p
+```
+
+
+```{r}
+#| results: hide
+# Cálculo de variaciones
+df_rankings <- df %>%
+  group_by(provincia) %>%
+  arrange(fecha) %>%
+  mutate(
+    # 1. Mensual (vs mes anterior)
+    var_men = (asalariados_miles / lag(asalariados_miles, 1) - 1) * 100,
+    # 2. Interanual (vs mismo mes año anterior)
+    var_ia = (asalariados_miles / lag(asalariados_miles, 12) - 1) * 100,
+    # 3. Gestión (vs Diciembre 2023)
+    val_dic23 = asalariados_miles[fecha == as.Date("2023-12-01")][1],
+    var_ges = (asalariados_miles / val_dic23 - 1) * 100
+  ) %>%
+  filter(fecha == max(fecha)) %>%
+  ungroup() %>%
+  mutate(es_argentina = ifelse(provincia == "ARGENTINA", "Total", "Provincia"))
+
+# geo
+path = "https://apis.datos.gob.ar/georef/api/v2.0/provincias.geojson"
+geo <- st_read(path) %>% 
+  mutate(provincia = str_to_upper(nombre), 
+         provincia = str_replace(provincia, ", ANTÁRTIDA E ISLAS DEL ATLÁNTICO SUR", ""),
+         provincia = str_replace(provincia, "  ", " "),
+         provincia = str_replace(provincia, "CIUDAD AUTÓNOMA DE BUENOS AIRES", "CABA")
+         ) %>% 
+  select(provincia, geometry)
+bbox <- st_bbox(c(xmin = -75, ymin = -58, xmax = -52, ymax = -20), crs = st_crs(geo))
+geo <- st_crop(geo, bbox)
+
+df_rankings <- df_rankings %>% 
+  mutate(provincia=str_replace(provincia, "  ", " ")) %>% 
+  left_join(geo, by="provincia") %>% 
+  st_as_sf()
+```
+
+```{r}
+# función para plotear rankings
+plot_ranking <- function(datos, columna_var, titulo) {
+  
+  ranking <- datos %>% 
+    ggplot(aes(x = reorder(provincia, .data[[columna_var]]), 
+           y = .data[[columna_var]], fill = .data[[columna_var]])) +
+    geom_col() +
+    geom_text(aes(label = paste0(round(.data[[columna_var]], 1), "%")), 
+              # El 'hjust' ajusta la posición: < 0 hacia afuera, > 1 hacia adentro
+              hjust = ifelse(datos[[columna_var]] >= 0, -0.2, 1.2), 
+              size = 3, 
+              fontface = "bold")+
+    coord_flip() +
+    scale_fill_gradient2(low = "#D73027", mid = "#FFFFBF", high = "#1A9850",
+                       midpoint=0)+
+    scale_y_continuous(expand = expansion(mult = c(0.2, 0.2))) +
+    theme_minimal() +
+    theme(legend.position = "none")+
+    labs(subtitle="Ranking", y="", x="")
+  
+  mapa <- datos %>% 
+    ggplot()+
+    geom_sf(aes(fill=.data[[columna_var]]), color="black", size=.2)+
+    scale_fill_gradient2(low = "#D73027", mid = "#FFFFBF", high = "#1A9850",
+                       midpoint=0) + 
+    coord_sf(expand=T)+
+    theme_void()+
+    theme(legend.position="none",
+          plot.margin=margin(0,0,0,0,"pt"))+
+    labs(subtitle="Mapa")
+  
+  mapa+ranking+plot_annotation(title=titulo, 
+                               subtitle="Variación del empleo asalariado registrado",
+                               caption="Fuente: elaboración propia con datos de SIPA",
+                               theme = theme(plot.title = element_text(size = 22),
+                                             plot.subtitle = element_text(size = 18)))
+  
+}
+```
+
+
+Graficamos variación mensual, interanual y gestión actual. 
+```{r}
+#| fig-height: 7
+#| fig-width: 10
+plot_ranking(df_rankings, "var_men", "Variación mensual (%)")
+plot_ranking(df_rankings, "var_ia", "Variación interanual (%)")
+plot_ranking(df_rankings, "var_ges", "Variación gestión actual (vs Dic-23)")
+```
+
