@@ -1,5 +1,5 @@
 ---
-title: "Datos de SIPA - Provincias"
+title: "Datos de SIPA - Actividades económicas"
 subtitle: "Evolución del empleo asalariado registrado"
 author: "Tomás Bustos"
 date: 2026-03-20
@@ -18,9 +18,7 @@ execute:
   message: false
 ---
 
-
 ```{r}
-#| label: librerías y funciones
 library(tidyverse)
 library(readxl)
 library(lubridate)
@@ -61,51 +59,105 @@ limpiar_fechas_argentina <- function(x) {
 
 ```
 
+xxx
 
 ```{r}
-#| label: limpieza de la base
 # https://www.argentina.gob.ar/trabajo/estadisticas
 # https://www.argentina.gob.ar/trabajo/estadisticas/situacion-y-evolucion-del-trabajo-registrado
 url <- "https://www.argentina.gob.ar/sites/default/files/trabajoregistrado_2512_estadisticas.xlsx"
-sheet_name="A.5.2" # asalariados en el sector privado, en miles, sin estacionalidad
+sheet_name="A.6.2" # asalariados en el sector privado, en miles, sin estacionalidad
 # archivo temporal
 destfile <- tempfile(fileext = ".xlsx")
 download.file(url, destfile, mode = "wb")
 df <- read_excel(destfile, sheet=sheet_name, skip=1) %>% 
-  filter(!is.na(`BUENOS AIRES`)) %>% 
+  filter(!is.na(`Minería y petróleo`)) %>% 
   mutate(fecha = limpiar_fechas_argentina(Período)) %>% 
-  pivot_longer(!c(fecha, Período), names_to="provincia", values_to="asalariados_miles") %>% 
-  mutate(provincia = str_replace_all(provincia, "[\r\n\t]+", " "),
-         provincia = str_replace_all(provincia, " 3/", ""),
-         provincia = str_replace_all(provincia, "Cdad. Autónoma de Buenos Aires", "CABA"))
+  pivot_longer(!c(fecha, Período), names_to="actividad", values_to="asalariados_miles") 
 
 total <- df %>%
-  select(!provincia) %>% 
+  select(!actividad) %>% 
   group_by(fecha, Período) %>% 
   summarise(asalariados_miles = sum(asalariados_miles),
-         provincia="ARGENTINA")
+         actividad="ARGENTINA")
 
 df <- df %>% 
   bind_rows(total) %>%  
-  arrange(fecha, provincia) %>% 
-  group_by(provincia) %>% 
+  arrange(fecha, actividad) %>% 
+  group_by(actividad) %>% 
   arrange(fecha) %>% 
   mutate(indice = (asalariados_miles / first(asalariados_miles))*100)
+
+df %>% head()
 ```
 
+Participación de las actividades en el último mes.
+```{r}
+#| label: treemap-actividades-final
+#| fig-width: 10
+#| fig-height: 9
+#| echo: false
 
-Evolución del empleo asalariado para provincias seleccionadas.
+wrap_text_v2 <- function(x, width = 30) {
+  str_wrap(x, width = width) %>% str_replace_all("\n", "<br>")
+}
+
+fecha_max <- max(df$fecha)
+fecha_label <- format(fecha_max, "%B %Y")
+
+df_treemap <- df %>%
+  filter(fecha == fecha_max, actividad != "ARGENTINA") %>%
+  ungroup() %>% 
+  mutate(
+    actividad_label = wrap_text_v2(actividad),
+    participacion = (asalariados_miles / sum(asalariados_miles)) * 100,
+    parent = "Total Nacional"
+  )
+
+plot_ly(
+  data = df_treemap,
+  type = "treemap",
+  labels = ~actividad_label,
+  parents = ~parent,
+  values = ~asalariados_miles,
+  # Usamos customdata para pasar la participación al hover
+  customdata = ~participacion,
+  texttemplate = "<b>%{label}</b><br>%{percentParent:.1%}",
+  textposition = "middle center",
+  insidetextfont = list(family = "Arial", size = 18), 
+  hovertemplate = paste(
+    "<b>Actividad:</b> %{label}<br>",
+    "<b>Empleos:</b> %{value:.1f} mil<br>",
+    # Invocamos el customdata con 1 decimal
+    "<b>Participación:</b> %{customdata:.1f}%<extra></extra>"
+  ),
+  marker = list(colorscale = "Viridis", line = list(color = "white", width = 0.5))
+) %>%
+  layout(
+    uniformtext = list(minsize = 10, mode = FALSE), 
+    height = 800,
+    autosize = TRUE,
+    margin = list(l = 0, r = 0, t = 60, b = 0),
+    title = list(
+       text = paste0("<b>Distribución del Empleo Asalariado por provincia</b>",
+                    "<br><sup>Datos correspondientes a ", fecha_label, "</sup>"),
+      x = 0.05, y = 0.98
+    )
+  ) %>%
+  config(responsive = TRUE, displayModeBar = T, modeBarButtonsToAdd = list("toImage"))
+```
+
+Evolución del empleo asalariado para actividades seleccionadas.
 ```{r}
 #| fig-width: 10
 #| out-width: "100%"
-provs <- c("CORRIENTES", "CHACO", "CÓRDOBA", "SANTA FE", "CHUBUT", "CATAMARCA")
+vector <- c("Actividades agropecuarias y pesca", "Minería y petróleo", "Comercio", "Construcción")
 fechas_hitos <- as.Date(c("2012-01-01", "2016-01-01", "2020-01-01", "2024-01-01"))
 
 df %>% 
-  filter(provincia %in% provs) %>%  
-  ggplot(aes(x = fecha, y = indice, color = provincia)) +
+  filter(actividad %in% vector) %>%  
+  ggplot(aes(x = fecha, y = indice, color = actividad)) +
   geom_line(linewidth = 1) +
-  geom_line(data=filter(df, provincia=="ARGENTINA"), color="black", linewidth=1.2) +
+  geom_line(data=filter(df, actividad=="ARGENTINA"), color="black", linewidth=1.2) +
   geom_vline(xintercept = fechas_hitos, 
              linetype = "dashed", 
              color = "grey70", 
@@ -116,37 +168,38 @@ df %>%
        x = NULL, y = "Índice")+
   theme(legend.position="bottom")
 
+
 ```
 
-Evolución del empleo asalariado para todas las provincias. 
+Evolución del empleo asalariado para todas las actividades. 
 ```{r}
 #| fig-width: 10
 #| out-width: "100%"
 #| # 1. Preparación de datos
-df_provincias <- df %>% filter(provincia != "ARGENTINA")
-df_argentina <- df %>% filter(provincia == "ARGENTINA")
-nombres_provs <- sort(unique(df_provincias$provincia))
+df_resto <- df %>% filter(actividad != "ARGENTINA")
+df_argentina <- df %>% filter(actividad == "ARGENTINA")
+nombres_acts <- sort(unique(df_resto$actividad))
 
 # 2. Definimos una paleta de colores para las provincias
 # Usamos 'Viridis' o 'Alphabet' para que haya suficiente contraste entre las 24
-colores_provs <- colorRampPalette(RColorBrewer::brewer.pal(8, "Set2"))(length(nombres_provs))
+colores_acts <- colorRampPalette(RColorBrewer::brewer.pal(8, "Set2"))(length(nombres_acts))
 
 # 3. Iniciamos el gráfico
 p <- plot_ly(type = 'scatter', mode = 'lines')
 
 # Capa de Provincias con COLORES
-for(i in seq_along(nombres_provs)) {
-  prov <- nombres_provs[i]
-  df_p <- df_provincias %>% filter(provincia == prov)
+for(i in seq_along(nombres_acts)) {
+  act <- nombres_acts[i]
+  df_p <- df_resto %>% filter(actividad == act)
   
   p <- p %>% add_trace(
     x = df_p$fecha, y = df_p$indice,
-    name = prov,
+    name = act,
     # Asignamos color de la paleta
-    line = list(color = colores_provs[i], width = 1.8),
+    line = list(color = colores_acts[i], width = 1.8),
     hovertemplate = paste(
       "<b>Fecha:</b> %{x|%b %Y}<br>",
-      "<b>Provincia:</b>", prov, "<br>",
+      "<b>Actividad:</b>", act, "<br>",
       "<b>Índice (vs 2009):</b> %{y:.1f}<br>",
       "<b>Asalariados (miles):</b> %{customdata:.1f}<extra></extra>"
     ),
@@ -176,7 +229,7 @@ p <- p %>% add_trace(
 p <- p %>% layout(
   title = list(
     text = paste0("<b>Evolución del Empleo Asalariado Registrado</b>",
-                  "<br><sup>Interactua con la leyenda para destacar o remover provincias.</sup>"),
+                  "<br><sup>Interactua con la leyenda para destacar o remover actividades.</sup>"),
     x = 0, font = list(size = 20)
   ),
   xaxis = list(title = "", showgrid = FALSE),
@@ -208,10 +261,10 @@ p
 
 
 ```{r}
-#| results: hide
 # Cálculo de variaciones
 df_rankings <- df %>%
-  group_by(provincia) %>%
+  filter(!actividad=="Sin especificar") %>% 
+  group_by(actividad) %>%
   arrange(fecha) %>%
   mutate(
     # 1. Mensual (vs mes anterior)
@@ -224,74 +277,26 @@ df_rankings <- df %>%
   ) %>%
   filter(fecha == max(fecha)) %>%
   ungroup() %>%
-  mutate(es_argentina = ifelse(provincia == "ARGENTINA", "Total", "Provincia"))
-
-# geo
-path = "https://apis.datos.gob.ar/georef/api/v2.0/provincias.geojson"
-geo <- st_read(path) %>% 
-  mutate(provincia = str_to_upper(nombre), 
-         provincia = str_replace(provincia, ", ANTÁRTIDA E ISLAS DEL ATLÁNTICO SUR", ""),
-         provincia = str_replace(provincia, "  ", " "),
-         provincia = str_replace(provincia, "CIUDAD AUTÓNOMA DE BUENOS AIRES", "CABA")
-         ) %>% 
-  select(provincia, geometry)
-bbox <- st_bbox(c(xmin = -75, ymin = -58, xmax = -52, ymax = -20), crs = st_crs(geo))
-geo <- st_crop(geo, bbox)
-
-df_rankings <- df_rankings %>% 
-  mutate(provincia=str_replace(provincia, "  ", " ")) %>% 
-  left_join(geo, by="provincia") %>% 
-  st_as_sf()
+  mutate(es_argentina = ifelse(actividad == "ARGENTINA", "Total", "Provincia"))
 ```
 
 ```{r}
-# función para plotear rankings
-plot_ranking <- function(datos, columna_var, titulo) {
-  
-  ranking <- datos %>% 
-    ggplot(aes(x = reorder(provincia, .data[[columna_var]]), 
-           y = .data[[columna_var]], fill = .data[[columna_var]])) +
+plot_ranking <- function(datos, columna_var, titulo, color_bar = "steelblue") {
+  ggplot(datos, aes(x = reorder(actividad, .data[[columna_var]]), 
+                    y = .data[[columna_var]], 
+                    fill = es_argentina)) +
     geom_col() +
-    geom_text(aes(label = paste0(round(.data[[columna_var]], 1), "%")), 
-              # El 'hjust' ajusta la posición: < 0 hacia afuera, > 1 hacia adentro
-              hjust = ifelse(datos[[columna_var]] >= 0, -0.2, 1.2), 
-              size = 3, 
-              fontface = "bold")+
     coord_flip() +
-    scale_fill_gradient2(low = "#D73027", mid = "#FFFFBF", high = "#1A9850",
-                       midpoint=0)+
-    scale_y_continuous(expand = expansion(mult = c(0.2, 0.2))) +
+    scale_fill_manual(values = c("Total" = "black", "Provincia" = color_bar)) +
     theme_minimal() +
-    theme(legend.position = "none")+
-    labs(subtitle="Ranking", y="", x="")
-  
-  mapa <- datos %>% 
-    ggplot()+
-    geom_sf(aes(fill=.data[[columna_var]]), color="black", size=.2)+
-    scale_fill_gradient2(low = "#D73027", mid = "#FFFFBF", high = "#1A9850",
-                       midpoint=0) + 
-    coord_sf(expand=T)+
-    theme_void()+
-    theme(legend.position="none",
-          plot.margin=margin(0,0,0,0,"pt"))+
-    labs(subtitle="Mapa")
-  
-  mapa+ranking+plot_annotation(title=titulo, 
-                               subtitle="Variación del empleo asalariado registrado",
-                               caption="Fuente: elaboración propia con datos de SIPA",
-                               theme = theme(plot.title = element_text(size = 22),
-                                             plot.subtitle = element_text(size = 18)))
-  
+    theme(legend.position = "none") +
+    labs(title = titulo, x = NULL, y = "Variación %")
 }
 ```
 
-
 Graficamos variación mensual, interanual y gestión actual. 
 ```{r}
-#| fig-height: 7
-#| fig-width: 10
-plot_ranking(df_rankings, "var_men", "Variación mensual (%)")
-plot_ranking(df_rankings, "var_ia", "Variación interanual (%)")
-plot_ranking(df_rankings, "var_ges", "Variación gestión actual (vs Dic-23)")
+plot_ranking(df_rankings, "var_men", "Variación Mensual (%)", "grey70")
+plot_ranking(df_rankings, "var_ia", "Variación Interanual (%)", "lightblue")
+plot_ranking(df_rankings, "var_ges", "Variación Gestión Actual (vs Dic-23)", "coral")
 ```
-
