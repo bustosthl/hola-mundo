@@ -67,6 +67,7 @@ limpiar_fechas_argentina <- function(x) {
 # https://www.argentina.gob.ar/trabajo/estadisticas
 # https://www.argentina.gob.ar/trabajo/estadisticas/situacion-y-evolucion-del-trabajo-registrado
 url <- "https://www.argentina.gob.ar/sites/default/files/trabajoregistrado_2512_estadisticas.xlsx"
+url <- "https://www.argentina.gob.ar/sites/default/files/trabajoregistrado_2601_estadisticas.xlsx"
 sheet_name="A.5.2" # asalariados en el sector privado, en miles, sin estacionalidad
 # archivo temporal
 destfile <- tempfile(fileext = ".xlsx")
@@ -262,11 +263,14 @@ df_rankings <- df %>%
   mutate(
     # 1. Mensual (vs mes anterior)
     var_men = (asalariados_miles / lag(asalariados_miles, 1) - 1) * 100,
+    abs_men = asalariados_miles - lag(asalariados_miles, 1),
     # 2. Interanual (vs mismo mes año anterior)
     var_ia = (asalariados_miles / lag(asalariados_miles, 12) - 1) * 100,
+    abs_ia = asalariados_miles - lag(asalariados_miles, 12),
     # 3. Gestión (vs Diciembre 2023)
     val_dic23 = asalariados_miles[fecha == as.Date("2023-12-01")][1],
-    var_ges = (asalariados_miles / val_dic23 - 1) * 100
+    var_ges = (asalariados_miles / val_dic23 - 1) * 100,
+    abs_ges = asalariados_miles - val_dic23 - 1
   ) %>%
   filter(fecha == max(fecha)) %>%
   ungroup() %>%

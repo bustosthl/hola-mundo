@@ -65,6 +65,7 @@ xxx
 # https://www.argentina.gob.ar/trabajo/estadisticas
 # https://www.argentina.gob.ar/trabajo/estadisticas/situacion-y-evolucion-del-trabajo-registrado
 url <- "https://www.argentina.gob.ar/sites/default/files/trabajoregistrado_2512_estadisticas.xlsx"
+url <- "https://www.argentina.gob.ar/sites/default/files/trabajoregistrado_2601_estadisticas.xlsx"
 sheet_name="A.6.2" # asalariados en el sector privado, en miles, sin estacionalidad
 # archivo temporal
 destfile <- tempfile(fileext = ".xlsx")
@@ -269,11 +270,14 @@ df_rankings <- df %>%
   mutate(
     # 1. Mensual (vs mes anterior)
     var_men = (asalariados_miles / lag(asalariados_miles, 1) - 1) * 100,
+    abs_men = asalariados_miles - lag(asalariados_miles, 1),
     # 2. Interanual (vs mismo mes año anterior)
     var_ia = (asalariados_miles / lag(asalariados_miles, 12) - 1) * 100,
+    abs_ia = asalariados_miles - lag(asalariados_miles, 12),
     # 3. Gestión (vs Diciembre 2023)
     val_dic23 = asalariados_miles[fecha == as.Date("2023-12-01")][1],
-    var_ges = (asalariados_miles / val_dic23 - 1) * 100
+    var_ges = (asalariados_miles / val_dic23 - 1) * 100,
+    abs_ges = asalariados_miles - val_dic23
   ) %>%
   filter(fecha == max(fecha)) %>%
   ungroup() %>%
@@ -281,22 +285,78 @@ df_rankings <- df %>%
 ```
 
 ```{r}
-plot_ranking <- function(datos, columna_var, titulo, color_bar = "steelblue") {
-  ggplot(datos, aes(x = reorder(actividad, .data[[columna_var]]), 
-                    y = .data[[columna_var]], 
-                    fill = es_argentina)) +
+plot_ranking <- function(datos, columna_var, titulo){
+  ranking <- datos %>% 
+    ggplot(aes(x = reorder(actividad, .data[[columna_var]]), 
+           y = .data[[columna_var]], fill = .data[[columna_var]])) +
     geom_col() +
+    geom_text(aes(label = paste0(round(.data[[columna_var]], 1), "%")), 
+              # El 'hjust' ajusta la posición: < 0 hacia afuera, > 1 hacia adentro
+              hjust = ifelse(datos[[columna_var]] >= 0, -0.2, 1.2), 
+              size = 3, 
+              fontface = "bold")+
     coord_flip() +
-    scale_fill_manual(values = c("Total" = "black", "Provincia" = color_bar)) +
+    scale_fill_gradient2(low = "#D73027", mid = "#FFFFBF", high = "#1A9850",
+                       midpoint=0)+
+    scale_y_continuous(expand = expansion(mult = c(0.2, 0.2))) +
     theme_minimal() +
-    theme(legend.position = "none") +
-    labs(title = titulo, x = NULL, y = "Variación %")
+    theme(legend.position = "none")+
+    labs(title=titulo, 
+         subtitle="Variación del empleo asalariado registrado",
+         caption="Fuente: elaboración propia con datos de SIPA", 
+         y="", x="")
+  ranking
 }
 ```
 
+
+```{r}
+library(plotly)
+#versión interactiva
+plot_ranking <- function(datos, columna_var, columna_abs, titulo){
+  ranking <- datos %>% 
+    ggplot(aes(x = reorder(actividad, .data[[columna_var]]), 
+               y = .data[[columna_var]], 
+               fill = .data[[columna_var]],
+               # Definimos el texto del "tooltip" (lo que aparece al pasar el mouse)
+               text = paste0("Actividad: ", actividad, 
+                             "<br>Variación: ", round(.data[[columna_var]], 1), "%",
+                             "<br>Puestos (en miles): ", round(.data[[columna_abs]], 1)))) +
+    geom_col() +
+    
+    # Podés dejar las etiquetas estáticas si querés, pero en gráficos 
+    # interactivos a veces es mejor borrarlas/comentarlas para que quede más limpio.
+    geom_text(aes(label = paste0(round(.data[[columna_var]], 1), "%")), 
+              hjust = ifelse(datos[[columna_var]] >= 0, -0.2, 1.2), 
+              size = 3, 
+              fontface = "bold")+
+    
+    coord_flip() +
+    scale_fill_gradient2(low = "#D73027", mid = "#FFFFBF", high = "#1A9850",
+                         midpoint=0)+
+    scale_y_continuous(expand = expansion(mult = c(0.2, 0.2))) +
+    theme_minimal() +
+    theme(legend.position = "none")+
+    labs(title=titulo, 
+         subtitle="Variación del empleo asalariado registrado",
+         caption="Fuente: elaboración propia con datos de SIPA", 
+         y="", x="")
+  
+  # Convertimos el gráfico a interactivo, indicando que use nuestro "text" personalizado
+  ggplotly(ranking, tooltip = "text") %>% 
+    # Ajuste técnico: Plotly a veces oculta el subtitle y caption nativos de ggplot,
+    # con este bloque nos aseguramos de que el título mantenga la info del subtítulo.
+    layout(title = list(text = paste0(titulo, 
+                                      '<br><sup style="font-size:12px;">Variación del empleo asalariado registrado</sup>')))
+}
+```
+
+
 Graficamos variación mensual, interanual y gestión actual. 
 ```{r}
-plot_ranking(df_rankings, "var_men", "Variación Mensual (%)", "grey70")
-plot_ranking(df_rankings, "var_ia", "Variación Interanual (%)", "lightblue")
-plot_ranking(df_rankings, "var_ges", "Variación Gestión Actual (vs Dic-23)", "coral")
+#| fig-height: 7
+#| fig-width: 8
+plot_ranking(df_rankings, "var_men", "abs_men", "Variación Mensual (%)")
+plot_ranking(df_rankings, "var_ia","abs_ia", "Variación Interanual (%)")
+plot_ranking(df_rankings, "var_ges", "abs_ges", "Variación Gestión Actual (vs Dic-23)")
 ```
