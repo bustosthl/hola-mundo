@@ -68,6 +68,7 @@ limpiar_fechas_argentina <- function(x) {
 # https://www.argentina.gob.ar/trabajo/estadisticas/situacion-y-evolucion-del-trabajo-registrado
 url <- "https://www.argentina.gob.ar/sites/default/files/trabajoregistrado_2512_estadisticas.xlsx"
 url <- "https://www.argentina.gob.ar/sites/default/files/trabajoregistrado_2601_estadisticas.xlsx"
+url <- "https://www.argentina.gob.ar/sites/default/files/trabajoregistrado_2602_estadisticas.xlsx"
 sheet_name="A.5.2" # asalariados en el sector privado, en miles, sin estacionalidad
 # archivo temporal
 destfile <- tempfile(fileext = ".xlsx")
