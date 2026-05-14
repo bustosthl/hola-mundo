@@ -2,7 +2,7 @@
 title: "Datos de SIPA - Actividades económicas"
 subtitle: "Evolución del empleo asalariado registrado"
 author: "Tomás Bustos"
-date: 2026-03-20
+date: "`r Sys.Date()`"
 categories: ["viz", "empleo"]
 lang: es
 format:
